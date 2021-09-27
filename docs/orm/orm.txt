@@ -30,3 +30,18 @@ so your application could interact with the database according to predefined spe
 - performance
 
 https://stackoverflow.com/questions/194147/are-there-good-reasons-not-to-use-an-orm
+
+
+##############################################################################################################
+5- makemigrations vs migrate django
+
+- makemigrations <app>: Create the migrations (generate the SQL commands).
+- migrate: Run the migrations (execute the SQL commands).
+- python manage.py sqlmigrate app_label migration_name
+- python manage.py sqlmigrate core 0001
+
+https://stackoverflow.com/questions/29980211/django-1-8-whats-the-difference-between-migrate-and-makemigrations
+
+
+##############################################################################################################
+
