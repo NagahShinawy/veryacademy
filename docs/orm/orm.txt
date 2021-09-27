@@ -1,0 +1,32 @@
+Student.objects.all()
+
+1- objects: [managers]: django class that provides interface between db query operations and django model
+
+
+##############################################################################################################
+
+2- why ORM?
+
+- write python code inseated of sql to [create, update, delete ]
+- speed up application developemnt
+
+##############################################################################################################
+
+3- driver (adaptor program)
+
+- database driver is a software that allows you to talk to your database from your application.
+There are language specific drivers such as JDBC, ODBC, OLE DB
+where the driver interface is implemented according to the language specifications
+so your application could interact with the database according to predefined specs.
+
+-enable you to open database connections and to interact with it by sending SQL or database commands then receiving results
+
+- for python with PostgreSQL  ==> psycopg is a tool to connect python app with PostgreSQL db
+
+##############################################################################################################
+4- WHY NOT TO USE ORM ?
+
+- security
+- performance
+
+https://stackoverflow.com/questions/194147/are-there-good-reasons-not-to-use-an-orm
