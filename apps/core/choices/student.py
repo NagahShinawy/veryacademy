@@ -2,5 +2,5 @@ from django.db import models
 
 
 class Gender(models.TextChoices):
-    male = ("male", "Male")
-    female = ("female", "Female")
+    MALE = ("male", "Male")
+    FEMALE = ("female", "Female")

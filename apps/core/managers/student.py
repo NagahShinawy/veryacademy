@@ -19,7 +19,7 @@ class StudentManager(models.Manager):
         return self.filter(age__lt=self.UNDER_AGE)
 
     def get_by_males(self):
-        return self.filter(gender=Gender.male)
+        return self.filter(gender=Gender.MALE)
 
     def get_by_females(self):
-        return self.filter(gender=Gender.female)
+        return self.filter(gender=Gender.FEMALE)
