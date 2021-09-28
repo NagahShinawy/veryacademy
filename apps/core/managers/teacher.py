@@ -10,7 +10,7 @@ class TeacherQS(models.QuerySet):
         return self.filter(level=ExperienceLevel.MIDLEVEL)
 
     def expert(self):
-        return self.filter(level=ExperienceLevel.expert)
+        return self.filter(level=ExperienceLevel.EXPERT)
 
 
 class TeacherManager(models.Manager.from_queryset(TeacherQS)):

@@ -13,7 +13,7 @@ class Teacher(models.Model):
     objects = TeacherManager()
 
     def __str__(self):
-        return self.firstname
+        return f"{self.firstname}-{self.salary}"
 
 
 class Student(models.Model):
