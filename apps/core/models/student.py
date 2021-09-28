@@ -10,6 +10,7 @@ class Teacher(models.Model):
         max_length=20, choices=ExperienceLevel.choices, default=ExperienceLevel.PRIMARY
     )
     salary = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    dob = models.DateField(blank=True, null=True)
     objects = TeacherManager()
 
     def __str__(self):

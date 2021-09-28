@@ -36,4 +36,14 @@ max_salary = Teacher.objects.get_max_salary()
 print("ALL")
 
 print(max_salary)
+
+print("#" * 100)
+
+# #######################################  ###########################################################
+
+print("Max Age")
+
+max_age = Teacher.objects.max_age()
+
+print(max_age)
 # from apps.core.shell.teacher import *

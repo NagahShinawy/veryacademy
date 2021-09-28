@@ -37,4 +37,8 @@ class MaxSalaryLevelMixin(models.Manager.from_queryset(TeacherQS)):
 
 
 class TeacherManager(MaxSalaryLevelMixin):
-    pass
+    def min_age(self):
+        return self.order_by("-dob").first()
+
+    def max_age(self):
+        return self.order_by("-dob").last()
