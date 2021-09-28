@@ -13,21 +13,28 @@ class TeacherQS(models.QuerySet):
         return self.filter(level=ExperienceLevel.EXPERT)
 
 
-class TeacherManager(models.Manager.from_queryset(TeacherQS)):
-    def max_salary_for_primary(self):
+class MaxSalaryLevelMixin(models.Manager.from_queryset(TeacherQS)):
+    def get_records(self, max_salary):
+        return self.filter(salary=max_salary)
+
+    def get_max_salary(self):
+        max_salary = self.aggregate(models.Max("salary"))["salary__max"]
+        return self.get_records(max_salary)
+
+    def get_max_salary_for_primary(self):
         max_salary = self.primary().aggregate(models.Max("salary"))[
             "salary__max"
         ]  # {'salary__max': Decimal('5000.00')}
-        return self.filter(salary=max_salary)
+        return self.get_records(max_salary)
 
-    def max_salary_for_midlevel(self):
+    def get_max_salary_for_mid(self):
         max_salary = self.mid_level().aggregate(models.Max("salary"))["salary__max"]
-        return self.filter(salary=max_salary)
+        return self.get_records(max_salary)
 
-    def max_salary_for_expert(self):
+    def get_max_salary_for_expert(self):
         max_salary = self.expert().aggregate(models.Max("salary"))["salary__max"]
-        return self.filter(salary=max_salary)
+        return self.get_records(max_salary)
 
-    def max_salary(self):
-        max_salary = self.aggregate(models.Max("salary"))["salary__max"]
-        return self.filter(salary=max_salary)
+
+class TeacherManager(MaxSalaryLevelMixin):
+    pass
