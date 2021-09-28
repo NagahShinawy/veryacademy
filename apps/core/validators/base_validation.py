@@ -11,16 +11,17 @@ class MaxAgeValidator(MaxValueValidator):
     message = "Age Must be at Max '%(limit_value)d' not '%(show_value)d'"
 
 
-class AgeRangeValidator(BaseValidator):
-    UNDERAGE = 18
-    RETIREMENT = 60
-    message = f"Range must in between {UNDERAGE}-{RETIREMENT}"
+class RangeValidator(BaseValidator):
 
-    def __init__(self, min_value, max_value):
-        super().__init__(min_value)
-        self.max = max_value
+    def __init__(self, limit_value, max_value, msg=""):
+        super().__init__(limit_value)
+        self.max_value = max_value
+        if msg:
+            self.message = msg
+        else:
+            self.message = f"Range must in between {limit_value}-{max_value}"
 
     def clean(self, x):
-        if x not in range(self.UNDERAGE, self.RETIREMENT):
+        if x not in range(self.limit_value, self.max_value):
             raise ValidationError(self.message)
         return x
