@@ -1,8 +1,8 @@
 from django.core.exceptions import ValidationError
-from django.core.validators import BaseValidator
+from django.core.validators import MinValueValidator
 
 
-class RangeValidator(BaseValidator):
+class RangeValidator(MinValueValidator):
     def __init__(self, limit_value, max_value, msg=""):
         super().__init__(limit_value)
         self.max_value = max_value
@@ -12,6 +12,6 @@ class RangeValidator(BaseValidator):
             self.message = f"Range must in between {limit_value}-{max_value}"
 
     def clean(self, x):
-        if x not in range(self.limit_value, self.max_value):
+        if x not in range(self.limit_value, self.max_value + 1):
             raise ValidationError(self.message)
         return x
