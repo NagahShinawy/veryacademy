@@ -36,9 +36,17 @@ class MaxSalaryLevelMixin(models.Manager.from_queryset(TeacherQS)):
         return self.get_records(max_salary)
 
 
-class TeacherManager(MaxSalaryLevelMixin):
+class AgeManagerMixin(models.Manager):
     def min_age(self):
         return self.order_by("-dob").first()
 
     def max_age(self):
         return self.order_by("-dob").last()
+
+
+class TeacherManager(MaxSalaryLevelMixin, AgeManagerMixin):
+    def find_by_name(self, query):
+        return self.filter(firstname__icontains=query)
+
+    def find_by_surname(self, query):
+        return self.filter(surname__icontains=query)

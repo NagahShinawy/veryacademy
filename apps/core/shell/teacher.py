@@ -46,4 +46,21 @@ print("Max Age")
 max_age = Teacher.objects.max_age()
 
 print(max_age)
+
+print("#" * 100)
+
+# #######################################  ###########################################################
+primary = Teacher.objects.primary().order_by("-salary")
+mid = Teacher.objects.mid_level().order_by("-salary")
+expert = Teacher.objects.expert().order_by("-salary")
+
+
+print("PRIMARY")
+print(primary)
+
+print("MID")
+print(mid)
+
+print("Expert")
+print(expert)
 # from apps.core.shell.teacher import *
