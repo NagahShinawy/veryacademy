@@ -1,5 +1,5 @@
 from django.db.models import Q
-from apps.core.models import Student
+from apps.core.models import Student, Teacher
 
 UNDER_AGE = 18
 
@@ -72,4 +72,29 @@ under_age = Student.objects.get_under_age()
 print(under_age)
 
 
+print("#" * 100)
+
+# #######################################  AND ###########################################################
+qs = Student.objects.get_by_males().filter(age__lte=25)
+
+print(qs)
+
+
+print("#" * 100)
+
+# #######################################  AND ###########################################################
+qs = Student.objects.get_by_males().filter(age__lte=25).filter(classroom=2)
+
+print(qs)
+
+
+print("#" * 100)
+
+# ###############  Custom Query with manager and models.Manager.from_queryset ###########################
+
+max_salary_for_primary = Teacher.objects.max_salary_for_primary()
+
+print(max_salary_for_primary)
+
 # from apps.core.shell.student import *
+
