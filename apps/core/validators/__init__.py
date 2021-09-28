@@ -1,7 +1,8 @@
-from .base_validation import MinAgeValidator, MaxAgeValidator
+from .base_validation import MinAgeValidator, MaxAgeValidator, AgeRangeValidator
 
 
 __all__ = [
     "MinAgeValidator",
-    "MaxAgeValidator"
+    "MaxAgeValidator",
+    "AgeRangeValidator"
 ]
