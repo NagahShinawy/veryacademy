@@ -10,4 +10,4 @@ class StudentModelAdmin(admin.ModelAdmin):
 @admin.register(Teacher)
 class TeacherModelAdmin(admin.ModelAdmin):
     list_display = ("id", "firstname", "surname", "level", "salary", "dob")
-    list_editable = ("dob", )
+    list_editable = ("dob",)

@@ -1,18 +1,8 @@
 from django.core.exceptions import ValidationError
-from django.core.validators import MinValueValidator, MaxValueValidator, BaseValidator
-
-
-class MinAgeValidator(MinValueValidator):
-
-    message = "Age Must be at least '%(limit_value)d' not '%(show_value)d'"
-
-
-class MaxAgeValidator(MaxValueValidator):
-    message = "Age Must be at Max '%(limit_value)d' not '%(show_value)d'"
+from django.core.validators import BaseValidator
 
 
 class RangeValidator(BaseValidator):
-
     def __init__(self, limit_value, max_value, msg=""):
         super().__init__(limit_value)
         self.max_value = max_value
