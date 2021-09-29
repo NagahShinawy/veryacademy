@@ -7,6 +7,10 @@ from apps.core.mixins import (
     UpperCasePatternMixin,
     LowerCasePatternMixin,
     SymbolPatternMixin,
+    MissingNumberMessage,
+    MissingUpperMessage,
+    MissingLowerMessage,
+    MissingSymbolMessage,
 )
 
 
@@ -17,51 +21,41 @@ class NumberValidator(NumberPatternMixin):
     def validate(self, password, *arg, **kwargs):
         if not re.findall(self.REGEX, password):
             raise ValidationError(
-                _("The password must contain at least 1 digit, 0-9."),
-                code="password_no_number",
+                _(MissingNumberMessage.message), code=MissingNumberMessage.code,
             )
 
     def get_help_text(self):
-        return _("Your password must contain at least 1 digit, 0-9.")
+        return _(MissingNumberMessage.message)
 
 
 class UppercaseValidator(UpperCasePatternMixin):
     def validate(self, password, *arg, **kwargs):
         if not re.findall(self.REGEX, password):
             raise ValidationError(
-                _("The password must contain at least 1 uppercase letter, A-Z."),
-                code="password_no_upper",
+                _(MissingUpperMessage.message), code=MissingUpperMessage.code,
             )
 
     def get_help_text(self):
-        return _("Your password must contain at least 1 uppercase letter, A-Z.")
+        return _(MissingUpperMessage.message)
 
 
 class LowercaseValidator(LowerCasePatternMixin):
     def validate(self, password, *arg, **kwargs):
         if not re.findall(self.REGEX, password):
             raise ValidationError(
-                _("The password must contain at least 1 lowercase letter, a-z."),
-                code="password_no_lower",
+                _(MissingLowerMessage.message), code=MissingLowerMessage.code,
             )
 
     def get_help_text(self):
-        return _("Your password must contain at least 1 lowercase letter, a-z.")
+        return _(MissingLowerMessage.message)
 
 
 class SymbolValidator(SymbolPatternMixin):
     def validate(self, password, *arg, **kwargs):
         if not re.findall(self.REGEX, password):
             raise ValidationError(
-                _(
-                    "The password must contain at least 1 symbol: "
-                    + "()[]{}|\`~!@#$%^&*_-+=;:'\",<>./?"
-                ),
-                code="password_no_symbol",
+                MissingSymbolMessage.message, code=MissingSymbolMessage.code,
             )
 
     def get_help_text(self):
-        return _(
-            "Your password must contain at least 1 symbol: "
-            + "()[]{}|\`~!@#$%^&*_-+=;:'\",<>./?"
-        )
+        return _(MissingSymbolMessage.message)
