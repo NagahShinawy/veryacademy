@@ -3,17 +3,25 @@ from .patterns import (
     UpperCasePatternMixin,
     LowerCasePatternMixin,
     SymbolPatternMixin,
+    BasePatternMixin,
 )
-from .helper import MissingNumberMessage, MissingUpperMessage, MissingLowerMessage, MissingSymbolMessage
+from .helper import (
+    NumberErrorMixin,
+    UpperErrorMixin,
+    LowerErrorMixin,
+    SymbolErrorMixin,
+    BaseErrorMixin,
+)
 
 __all__ = [
+    "BasePatternMixin",
     "NumberPatternMixin",
     "UpperCasePatternMixin",
     "LowerCasePatternMixin",
     "SymbolPatternMixin",
-    "MissingNumberMessage",
-    "MissingUpperMessage",
-    "MissingLowerMessage",
-    "MissingSymbolMessage"
-
+    "BaseErrorMixin",
+    "NumberErrorMixin",
+    "UpperErrorMixin",
+    "LowerErrorMixin",
+    "SymbolErrorMixin",
 ]
