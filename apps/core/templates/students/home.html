@@ -4,7 +4,7 @@
 {% block main %}
     <ul>
          {% for student in students %}
-             <li>{{ student.firstname }}</li>
+             <li>{{ student.firstname }} - {{ student.age }}</li>
          {% empty %}
              <p>Sorry. No results!</p>
          {% endfor %}
