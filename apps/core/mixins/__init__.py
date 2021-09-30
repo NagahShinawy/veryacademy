@@ -5,13 +5,6 @@ from .patterns import (
     SymbolPatternMixin,
     BasePatternMixin,
 )
-from .helper import (
-    NumberErrorMixin,
-    UpperErrorMixin,
-    LowerErrorMixin,
-    SymbolErrorMixin,
-    BaseErrorMixin,
-)
 
 __all__ = [
     "BasePatternMixin",
@@ -19,9 +12,4 @@ __all__ = [
     "UpperCasePatternMixin",
     "LowerCasePatternMixin",
     "SymbolPatternMixin",
-    "BaseErrorMixin",
-    "NumberErrorMixin",
-    "UpperErrorMixin",
-    "LowerErrorMixin",
-    "SymbolErrorMixin",
 ]

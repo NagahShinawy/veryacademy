@@ -5,6 +5,8 @@
     <ul>
          {% for student in students %}
              <li>{{ student.firstname }}</li>
+         {% empty %}
+             <p>Sorry. No results!</p>
          {% endfor %}
     </ul>
 
