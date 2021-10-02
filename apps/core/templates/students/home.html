@@ -15,6 +15,12 @@
              <li>{{ student.firstname }}</li>
          {% endfor %}
     </ul>
+    <hr>
+
+    <h3>Students: {{ students.count }}</h3>
+         {% for student in males_underage %}
+             <li>{{ student.firstname }}</li>
+         {% endfor %}
 
 
 {% endblock %}

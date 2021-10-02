@@ -60,3 +60,14 @@ def students_and(request):
         template_name="students/home.html",
         context={"students": students, "stds": students_2},
     )
+
+
+def under_ages(request):
+    # check managers to filter ages
+    females_underage = Student.objects.filter(Q(age__gt=18) & Q(gender__exact=Gender.FEMALE))
+    males_underage = Student.objects.filter(Q(age__gt=18) & Q(gender__exact=Gender.MALE))
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={"students": females_underage, "males_underage": males_underage},
+    )
