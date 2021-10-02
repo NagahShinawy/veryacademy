@@ -101,4 +101,14 @@ print(qs)
 
 print("#" * 100)
 
+
+# #######################################  Combine queries ###########################################################
+under_age_females = Student.objects.get_under_age_females()
+
+print(under_age_females)
+
+under_age_males = Student.objects.get_under_age_males()
+
+print(under_age_males)
+
 # from apps.core.shell.student import *

@@ -66,6 +66,8 @@ def under_ages(request):
     # check managers to filter ages
     females_underage = Student.objects.filter(Q(age__gt=18) & Q(gender__exact=Gender.FEMALE))
     males_underage = Student.objects.filter(Q(age__gt=18) & Q(gender__exact=Gender.MALE))
+    print(males_underage)
+    print(connection.queries)  # show sql statement and more info about query
     return render(
         request=request,
         template_name="students/home.html",

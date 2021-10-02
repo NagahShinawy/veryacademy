@@ -55,3 +55,9 @@ students = Student.objects.filter(firstname__istartswith="S") | Student.objects.
 way#1: students = Student.objects.filter(~Q(firstname__istartswith="s"))
 
 way#2: exclude_s = Student.objects.exclude(firstname__istartswith="s")
+
+
+##############################################################################################################
+8- combine queries
+
+https://stackoverflow.com/questions/431628/how-can-i-combine-two-or-more-querysets-in-a-django-view

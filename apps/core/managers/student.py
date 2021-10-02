@@ -1,3 +1,4 @@
+from itertools import chain
 from django.db import models
 from apps.core.choices import Gender
 
@@ -23,3 +24,9 @@ class StudentManager(models.Manager):
 
     def get_females(self):
         return self.filter(gender=Gender.FEMALE)
+
+    def get_under_age_females(self):
+        return self.get_females() & self.get_under_age()
+
+    def get_under_age_males(self):
+        return self.get_males() & self.get_under_age()

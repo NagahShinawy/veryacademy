@@ -6,4 +6,4 @@ class AgeField(models.SmallIntegerField):
     UNDERAGE = 18
     RETIREMENT = 60
 
-    default_validators = [RangeValidator(UNDERAGE, RETIREMENT)]
+    # default_validators = [RangeValidator(UNDERAGE, RETIREMENT)]
