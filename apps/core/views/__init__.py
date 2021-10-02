@@ -6,6 +6,7 @@ from .student import (
     under_ages,
     union,
     salaries,
+    lower
 )
 
 __all__ = [
@@ -16,4 +17,5 @@ __all__ = [
     "under_ages",
     "union",
     "salaries",
+    "lower",
 ]

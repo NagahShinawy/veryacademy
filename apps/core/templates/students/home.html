@@ -34,5 +34,11 @@
              <li>{{ forloop.counter }}-{{ std_salary.salary }}</li>
          {% endfor %}
 
+     <hr>
+    <h3>All Lower Names: {{ students.count }}</h3>
+         {% for name in students %}
+             <li>{{ forloop.counter }}-{{ name.0 }}</li>
+         {% endfor %}
+
 
 {% endblock %}

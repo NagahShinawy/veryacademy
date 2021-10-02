@@ -7,6 +7,7 @@ from apps.core.views import (
     under_ages,
     union,
     salaries,
+    lower
 )
 
 app_name = "student"
@@ -19,4 +20,5 @@ urlpatterns = [
     path("under_ages/", under_ages, name="under_ages"),
     path("union/", union, name="union"),
     path("salaries/", salaries, name="salaries"),
+    path("lower/", lower, name="lower"),
 ]

@@ -1,5 +1,6 @@
 from django.db import connection
 from django.db.models import Q
+from django.db.models.functions import Lower, Upper, Replace
 from django.shortcuts import render
 from apps.core.models import Student, Teacher
 from apps.core.choices import Gender
@@ -127,4 +128,15 @@ def salaries(request):
         request=request,
         template_name="students/home.html",
         context={"students_salary": students_salary, "all_salaries": all_salaries},
+    )
+
+
+def lower(request):
+    # students = Student.objects.values_list(Lower("firstname"))
+    students = Student.objects.values_list(Upper("firstname"))
+    students = Student.objects.values_list(Title("firstname"))
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={"students": students},
     )

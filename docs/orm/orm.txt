@@ -99,3 +99,11 @@ print(all_salaries)
 # Error: UNION types numeric and date cannot be matched
 qs = Student.objects.values("salary").union(Teacher.objects.values("dob"))
 print(qs)
+
+
+################################### Using function tools ##############################################################
+
+1- using function tools [Lower, Upper] with values_list
+
+students = Student.objects.values_list(Lower("firstname"))
+students = Student.objects.values_list(Upper("firstname"))
