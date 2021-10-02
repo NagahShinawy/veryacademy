@@ -23,7 +23,7 @@ class Student(models.Model):
     name_ar = ArabicNameField(blank=True, null=True, max_length=256)
     name_en = EnglishNameField(blank=True, null=True, max_length=256)
     surname = models.CharField(max_length=100)
-    age = AgeField()
+    age = AgeField(null=True, blank=True)
     classroom = models.IntegerField()
     teacher = models.CharField(max_length=100, null=True, blank=True)
     gender = models.CharField(

@@ -7,7 +7,7 @@ class StudentManager(models.Manager):
     UNDER_AGE = 18
 
     def get_by_firstname(self, firstname):
-        return self.filter(firstname=firstname)
+        return self.filter(firstname__icontains=firstname)
 
     def get_by_age(self, age):
         return self.filter(age=age)
@@ -18,8 +18,8 @@ class StudentManager(models.Manager):
     def get_under_age(self):
         return self.filter(age__lt=self.UNDER_AGE)
 
-    def get_by_males(self):
+    def get_males(self):
         return self.filter(gender=Gender.MALE)
 
-    def get_by_females(self):
+    def get_females(self):
         return self.filter(gender=Gender.FEMALE)

@@ -3,15 +3,26 @@ from apps.core.models import Student, Teacher
 
 UNDER_AGE = 18
 
+# ModelName.ManagerObj.display_all_records()
 students = Student.objects.all()
 
+
 print(students)
+
+print(students.query)
+
+"""
+SELECT "core_student"."id", "core_student"."firstname", "core_student"."name_ar", 
+"core_student"."name_en", "core_student"."surname", "core_student"."age", "core_student"."classroom",
+"core_student"."teacher", "core_student"."gender"
+FROM "core_student"
+"""
 
 ####################################################################################################
 
 
 print("#" * 100)
-males = Student.objects.get_by_males()
+males = Student.objects.get_males()
 
 print(males)
 
@@ -21,7 +32,7 @@ print("#" * 100)
 ####################################################################################################
 
 
-females = Student.objects.get_by_females()
+females = Student.objects.get_females()
 
 print(females)
 
@@ -75,7 +86,7 @@ print(under_age)
 print("#" * 100)
 
 # #######################################  AND ###########################################################
-qs = Student.objects.get_by_males().filter(age__lte=25)
+qs = Student.objects.get_males().filter(age__lte=25)
 
 print(qs)
 
@@ -83,7 +94,7 @@ print(qs)
 print("#" * 100)
 
 # #######################################  AND ###########################################################
-qs = Student.objects.get_by_males().filter(age__lte=25).filter(classroom=2)
+qs = Student.objects.get_males().filter(age__lte=25).filter(classroom=2)
 
 print(qs)
 
