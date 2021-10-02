@@ -44,4 +44,12 @@ https://stackoverflow.com/questions/29980211/django-1-8-whats-the-difference-bet
 
 
 ##############################################################################################################
+6- basic operator |
+# get all qs startswith "S" or qs startswith 'A'
+students = Student.objects.filter(firstname__istartswith="S") | Student.objects.filter(firstname__startswith="A")
 
+##############################################################################################################
+7- exclude objs using not operator ~
+# not operator ~. mean get all objs with firstname not sS
+# get all but exclude objs startswith either s or S
+students = Student.objects.filter(~Q(firstname__istartswith="s"))
