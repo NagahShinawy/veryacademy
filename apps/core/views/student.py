@@ -111,12 +111,17 @@ def union(request):
 def salaries(request):
     students_salary = Student.objects.values("salary").order_by("salary").distinct()
     # get all distinct salaries and sort it desc
+    # union fields must have the same name and same datatype
     all_salaries = (
         Student.objects.values("salary")
         .union(Teacher.objects.values("salary"))
         .order_by("salary")
     )
     print(all_salaries)
+
+    # UNION types numeric and date cannot be matched
+    # qs = Student.objects.values("salary").union(Teacher.objects.values("dob"))
+    # print(qs)
     print(connection.queries)
     return render(
         request=request,
