@@ -1,7 +1,7 @@
 from django.db import connection
 from django.db.models import Q
 from django.shortcuts import render
-from apps.core.models import Student
+from apps.core.models import Student, Teacher
 from apps.core.choices import Gender
 
 
@@ -54,7 +54,9 @@ def students_list_not_s(request):
 
 def students_and(request):
     students = Student.objects.filter(Q(gender__exact=Gender.FEMALE) & Q(age__lt=30))
-    students_2 = Student.objects.filter(Q(id__gt=3) & Q(gender__exact=Gender.FEMALE) & Q(firstname__iendswith="a"))
+    students_2 = Student.objects.filter(
+        Q(id__gt=3) & Q(gender__exact=Gender.FEMALE) & Q(firstname__iendswith="a")
+    )
     return render(
         request=request,
         template_name="students/home.html",
@@ -64,12 +66,41 @@ def students_and(request):
 
 def under_ages(request):
     # check managers to filter ages
-    females_underage = Student.objects.filter(Q(age__gt=18) & Q(gender__exact=Gender.FEMALE))
-    males_underage = Student.objects.filter(Q(age__gt=18) & Q(gender__exact=Gender.MALE))
+    females_underage = Student.objects.filter(
+        Q(age__gt=18) & Q(gender__exact=Gender.FEMALE)
+    )
+    males_underage = Student.objects.filter(
+        Q(age__gt=18) & Q(gender__exact=Gender.MALE)
+    )
     print(males_underage)
     print(connection.queries)  # show sql statement and more info about query
     return render(
         request=request,
         template_name="students/home.html",
         context={"students": females_underage, "males_underage": males_underage},
+    )
+
+
+def union(request):
+    # get firstname from student Model, and get firstname from teacher Model.
+    students = Student.objects.values_list("firstname")
+    print(
+        students
+    )  # <QuerySet [('Nancy',), ('PHP',), ('Smith',), ('Anna',), ('Ella',), ('sara',), ('Adam',), ('John',)]>
+    teachers = Teacher.objects.values_list("firstname")
+    print(teachers)
+    # means get unique firstnames from Student Model and Teacher Model
+    firstnames = students.union(
+        teachers
+    )  # it returns distinct firstnames ignoring case sensitive
+    print(students.count())
+    print(teachers.count())
+    print(firstnames.count())
+    print(
+        Student.objects.values("firstname")[:3]
+    )  # <QuerySet [{'firstname': 'Nancy'}, {'firstname': 'PHP'}, {'firstname': 'Smith'}]>
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={"firstnames": firstnames},
     )

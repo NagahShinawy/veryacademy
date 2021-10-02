@@ -18,8 +18,8 @@
     <hr>
 
     <h3>Students: {{ students.count }}</h3>
-         {% for student in males_underage %}
-             <li>{{ student.firstname }}</li>
+         {% for firstname in firstnames %}
+             <li>{{ forloop.counter }}-{{ firstname.0 }}</li>
          {% endfor %}
 
 

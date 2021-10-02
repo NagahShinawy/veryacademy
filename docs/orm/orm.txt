@@ -61,3 +61,20 @@ way#2: exclude_s = Student.objects.exclude(firstname__istartswith="s")
 8- combine queries
 
 https://stackoverflow.com/questions/431628/how-can-i-combine-two-or-more-querysets-in-a-django-view
+
+###################################  values_list vs values ###########################################################################
+9- diff between values_list and values
+
+- values_list:  <QuerySet [('Nancy',), ('PHP',), ('Smith',), ]> ==> QS of tuples
+
+students = Student.objects.values_list("firstname")
+    print(
+        students
+    )  # <QuerySet [('Nancy',), ('PHP',), ('Smith',), ('Anna',), ('Ella',), ('sara',), ('Adam',), ('John',)]>
+
+
+- values: <QuerySet [{'firstname': 'Nancy'}, {'firstname': 'PHP'}, {'firstname': 'Smith'}]> ==> QS of dictionaries
+
+print(
+        Student.objects.values("firstname")[:3]
+)  # <QuerySet [{'firstname': 'Nancy'}, {'firstname': 'PHP'}, {'firstname': 'Smith'}]>
