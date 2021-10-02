@@ -54,8 +54,9 @@ def students_list_not_s(request):
 
 def students_and(request):
     students = Student.objects.filter(Q(gender__exact=Gender.FEMALE) & Q(age__lt=30))
+    students_2 = Student.objects.filter(Q(id__gt=3) & Q(gender__exact=Gender.FEMALE) & Q(firstname__iendswith="a"))
     return render(
         request=request,
         template_name="students/home.html",
-        context={"students": students},
+        context={"students": students, "stds": students_2},
     )
