@@ -99,8 +99,27 @@ def union(request):
     print(
         Student.objects.values("firstname")[:3]
     )  # <QuerySet [{'firstname': 'Nancy'}, {'firstname': 'PHP'}, {'firstname': 'Smith'}]>
+
+    print(connection.queries)
     return render(
         request=request,
         template_name="students/home.html",
         context={"firstnames": firstnames},
+    )
+
+
+def salaries(request):
+    students_salary = Student.objects.values("salary").order_by("salary").distinct()
+    # get all distinct salaries and sort it desc
+    all_salaries = (
+        Student.objects.values("salary")
+        .union(Teacher.objects.values("salary"))
+        .order_by("salary")
+    )
+    print(all_salaries)
+    print(connection.queries)
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={"students_salary": students_salary, "all_salaries": all_salaries},
     )

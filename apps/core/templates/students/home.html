@@ -22,5 +22,17 @@
              <li>{{ forloop.counter }}-{{ firstname.0 }}</li>
          {% endfor %}
 
+    <hr>
+    <h3>Students Salaries: {{ students_salary.count }}</h3>
+         {% for std_salary in students_salary %}
+             <li>{{ forloop.counter }}-{{ std_salary.salary }}</li>
+         {% endfor %}
+
+    <hr>
+    <h3>All Salaries Salaries: {{ all_salaries.count }}</h3>
+         {% for std_salary in all_salaries %}
+             <li>{{ forloop.counter }}-{{ std_salary.salary }}</li>
+         {% endfor %}
+
 
 {% endblock %}

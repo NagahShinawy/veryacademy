@@ -4,7 +4,8 @@ from .student import (
     students_list_not_s,
     students_and,
     under_ages,
-    union
+    union,
+    salaries,
 )
 
 __all__ = [
@@ -13,5 +14,6 @@ __all__ = [
     "students_list_not_s",
     "students_and",
     "under_ages",
-    "union"
+    "union",
+    "salaries",
 ]

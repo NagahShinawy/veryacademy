@@ -29,6 +29,7 @@ class Student(models.Model):
     gender = models.CharField(
         max_length=10, choices=Gender.choices, default=Gender.MALE
     )
+    salary = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     objects = StudentManager()
 
