@@ -5,6 +5,7 @@ from apps.core.models import Student, Teacher
 @admin.register(Student)
 class StudentModelAdmin(admin.ModelAdmin):
     list_display = ("id", "firstname", "gender", "age", "teacher", "classroom")
+    list_editable = ("age", )
 
 
 @admin.register(Teacher)

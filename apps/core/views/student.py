@@ -2,6 +2,7 @@ from django.db import connection
 from django.db.models import Q
 from django.shortcuts import render
 from apps.core.models import Student
+from apps.core.choices import Gender
 
 
 def students_list(request):
@@ -48,4 +49,13 @@ def students_list_not_s(request):
         request=request,
         template_name="students/home.html",
         context={"students": students, "students_not_s": exclude_s},
+    )
+
+
+def students_and(request):
+    students = Student.objects.filter(Q(gender__exact=Gender.FEMALE) & Q(age__lt=30))
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={"students": students},
     )
