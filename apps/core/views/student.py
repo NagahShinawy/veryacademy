@@ -18,3 +18,14 @@ def students_list(request):
         template_name="students/home.html",
         context={"students": students},
     )
+
+
+def students_list_(request):
+    # get all qs startswith "S" or qs startswith 'A'
+    students = Student.objects.filter(firstname__istartswith="S") | Student.objects.filter(firstname__startswith="A")
+
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={"students": students},
+    )
