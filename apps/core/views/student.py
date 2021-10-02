@@ -42,9 +42,10 @@ def students_list_not_s(request):
     # not operator ~. mean get all objs with firstname not sS
     # get all but exclude objs startswith either s or S
     students = Student.objects.filter(~Q(firstname__istartswith="s"))
+    exclude_s = Student.objects.exclude(firstname__istartswith="s")
 
     return render(
         request=request,
         template_name="students/home.html",
-        context={"students": students},
+        context={"students": students, "students_not_s": exclude_s},
     )

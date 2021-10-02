@@ -52,4 +52,6 @@ students = Student.objects.filter(firstname__istartswith="S") | Student.objects.
 7- exclude objs using not operator ~
 # not operator ~. mean get all objs with firstname not sS
 # get all but exclude objs startswith either s or S
-students = Student.objects.filter(~Q(firstname__istartswith="s"))
+way#1: students = Student.objects.filter(~Q(firstname__istartswith="s"))
+
+way#2: exclude_s = Student.objects.exclude(firstname__istartswith="s")

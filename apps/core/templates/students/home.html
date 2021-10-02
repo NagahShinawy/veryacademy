@@ -3,6 +3,14 @@
 
 {% block main %}
     <ul>
+         <h3>Students: {{ students.count }}</h3>
+         {% for student in students %}
+             <li>{{ student.firstname }}</li>
+         {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+         <h3>Students: {{ students.count }}</h3>
          {% for student in students %}
              <li>{{ student.firstname }}</li>
          {% endfor %}
