@@ -78,3 +78,17 @@ students = Student.objects.values_list("firstname")
 print(
         Student.objects.values("firstname")[:3]
 )  # <QuerySet [{'firstname': 'Nancy'}, {'firstname': 'PHP'}, {'firstname': 'Smith'}]>
+
+
+################################### unoin ###########################################################################
+
+10- unoin: combine querysets together and remove duplicates
+
+
+# get all distinct salaries and sort it desc
+all_salaries = (
+    Student.objects.values("salary")
+    .union(Teacher.objects.values("salary"))
+    .order_by("salary")
+)
+print(all_salaries)
