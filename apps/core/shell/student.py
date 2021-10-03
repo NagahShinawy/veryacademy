@@ -143,4 +143,17 @@ print(ages_20_or_older)
 between10_20 = Student.objects.filter(age__range=[10, 20])
 
 print(between10_20)
+not_older_20 = Student.objects.exclude(
+    age__gt=20
+)  # = age__lt=20: remove objs greater that 20
+print(not_older_20)
+not_older_20 = Student.objects.filter(age__lt=20)  # get objs less than 20
+
+print(not_older_20)
+
+not_older_20 = Student.objects.filter(
+    ~Q(age__gte=20)
+)  # remove objs greater that equal 20{
+
+print(not_older_20)
 # from apps.core.shell.student import *
