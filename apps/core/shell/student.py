@@ -1,5 +1,6 @@
 from django.db.models import Q
 from apps.core.models import Student, Teacher
+from apps.core.choices import Gender
 
 UNDER_AGE = 18
 
@@ -156,4 +157,27 @@ not_older_20 = Student.objects.filter(
 )  # remove objs greater that equal 20{
 
 print(not_older_20)
+
+print("#" * 100)
+
+
+# ####################################### only : select individuals fields ###########################
+
+qs = Student.objects.filter(gender__exact=Gender.FEMALE).only("firstname", "age")
+
+print(qs)
+
+for student in qs:
+    print(student.firstname, student.age, student.salary)
+
+print("#" * 100)
+
+
+# ####################################### raw: using sql raw ###########################
+
+students = Student.objects.raw("SELECT * FROM core_student WHERE id = 7;")
+
+for student in students:
+    print(student)
+
 # from apps.core.shell.student import *
