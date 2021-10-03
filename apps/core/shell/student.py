@@ -111,4 +111,20 @@ under_age_males = Student.objects.get_under_age_males()
 
 print(under_age_males)
 
+print("#" * 100)
+
+# ####################################### exclude with exclude method and ~ operator ###########################
+
+adults = Student.objects.exclude(age__lte=18)
+
+print(adults)
+
+adults = Student.objects.filter(age__gt=18)
+
+print(adults)
+
+adults = Student.objects.filter(~Q(age__lte=18))
+
+print(adults)
+
 # from apps.core.shell.student import *
