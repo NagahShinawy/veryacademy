@@ -34,7 +34,7 @@ class Student(models.Model):
     objects = StudentManager()
 
     def __str__(self):
-        return self.firstname
+        return f"{self.firstname}-{self.age}"
 
     @property
     def is_male(self):

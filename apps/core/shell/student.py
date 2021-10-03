@@ -127,4 +127,20 @@ adults = Student.objects.filter(~Q(age__lte=18))
 
 print(adults)
 
+print("#" * 100)
+
+
+# ####################################### gte, gt, lte, lt ###########################
+
+under_20 = Student.objects.filter(age__lt=20)
+
+print(under_20)
+
+ages_20_or_older = Student.objects.filter(age__gte=20)
+
+print(ages_20_or_older)
+
+between10_20 = Student.objects.filter(age__range=[10, 20])
+
+print(between10_20)
 # from apps.core.shell.student import *
