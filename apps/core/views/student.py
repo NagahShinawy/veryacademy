@@ -152,6 +152,9 @@ def not_query(request):
 
     # get adults females
     adult_females = Student.objects.exclude(gender=Gender.MALE).exclude(age__lt=18)
+
+    print(adult_females)
+    print(connection.queries)
     return render(
         request=request,
         template_name="students/home.html",
