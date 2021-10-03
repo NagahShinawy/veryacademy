@@ -40,5 +40,23 @@
              <li>{{ forloop.counter }}-{{ name.0 }}</li>
          {% endfor %}
 
+    <hr>
+    <h3>All Females: {{ students.count }}</h3>
+         {% for female in females %}
+             <li>{{ forloop.counter }}-{{ female }} - {{ female.gender }}</li>
+         {% endfor %}
+
+     <hr>
+    <h3>All Adult Females: {{ older_females.count }}</h3>
+         {% for adutl_female in older_females %}
+             <li>{{ forloop.counter }}-{{ adutl_female }} - {{ adutl_female.gender }} - {{ adutl_female.age }}</li>
+         {% endfor %}
+
+     <hr>
+    <h3>All Adult Females: {{ adult_females.count }}</h3>
+         {% for adutl_female in adult_females %}
+             <li>{{ forloop.counter }}-{{ adutl_female }} - {{ adutl_female.gender }} - {{ adutl_female.age }}</li>
+         {% endfor %}
+
 
 {% endblock %}

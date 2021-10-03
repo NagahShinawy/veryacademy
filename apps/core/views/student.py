@@ -134,9 +134,30 @@ def salaries(request):
 def lower(request):
     # students = Student.objects.values_list(Lower("firstname"))
     students = Student.objects.values_list(Upper("firstname"))
-    students = Student.objects.values_list(Title("firstname"))
     return render(
         request=request,
         template_name="students/home.html",
         context={"students": students},
+    )
+
+
+def not_query(request):
+    # not males = females
+    # exclude males means get females
+    not_males = Student.objects.exclude(gender=Gender.MALE)
+    # means females and adults
+    not_males_and_not_underage = Student.objects.exclude(
+        (Q(gender=Gender.MALE) | Q(age__lt=18))
+    )
+
+    # get adults females
+    adult_females = Student.objects.exclude(gender=Gender.MALE).exclude(age__lt=18)
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={
+            "females": not_males,
+            "older_females": not_males_and_not_underage,
+            "adult_females": adult_females,
+        },
     )
