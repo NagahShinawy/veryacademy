@@ -64,4 +64,16 @@
              <li>{{ forloop.counter }} - {{ student.firstname }} - {{ student.gender }} - {{ student.age }}</li>
          {% endfor %}
 
+    <hr>
+    <h3>Primary: {{ primary.count }}</h3>
+         {% for student in primary %}
+             <li>{{ forloop.counter }} - {{ student.firstname }} - {{ student.gender }} - {{ student.age }} - {{ student.classroom }}</li>
+         {% endfor %}
+
+     <hr>
+    <h3>Secondary: {{ secondary.count }}</h3>
+         {% for student in secondary %}
+             <li>{{ forloop.counter }} - {{ student.firstname }} - {{ student.classroom }}</li>
+         {% endfor %}
+
 {% endblock %}

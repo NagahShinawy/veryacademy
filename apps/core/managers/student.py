@@ -6,6 +6,8 @@ from apps.core.choices import Gender
 class StudentManager(models.Manager):
 
     UNDER_AGE = 18
+    PRIMARY_CLASSES = range(1, 4)  # 1 : 3
+    SECONDARY_CLASSES = range(4, 7)  # 4 : 6
 
     def get_by_firstname(self, firstname):
         return self.filter(firstname__icontains=firstname)
@@ -30,3 +32,9 @@ class StudentManager(models.Manager):
 
     def get_under_age_males(self):
         return self.get_males() & self.get_under_age()
+
+    def primary_class(self):
+        return self.filter(classroom__in=self.PRIMARY_CLASSES)
+
+    def secondary_class(self):
+        return self.filter(classroom__in=self.SECONDARY_CLASSES)
