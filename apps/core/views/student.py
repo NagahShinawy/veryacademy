@@ -170,6 +170,9 @@ def select_individual(request):
     students = Student.objects.values("firstname", "age")
     primary = Student.objects.primary_class().only("firstname", "classroom")
     secondary = Student.objects.secondary_class().only("age", "salary")
+    stds = Student.objects.only("firstname")
+    print([std.firstname for std in stds])
+    print(secondary.query)
     return render(
         request=request,
         template_name="students/home.html",
