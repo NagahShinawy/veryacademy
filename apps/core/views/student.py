@@ -192,7 +192,7 @@ def raw(request):
     other = "WHERE id IN (1, 6, 8)"
     sql = SelectStatement(model, *fields, other=other)
     stds = Student.objects.raw(sql.raw_query)  # RawQuerySet obj
-    stds = Student.objects.raw(all_stds)
+    stds = Student.objects.raw(all_stds)[:3]  # limit queryset
     return render(
         request=request,
         template_name="students/home.html",
