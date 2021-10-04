@@ -6,17 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0009_alter_student_name_ar'),
+        ("core", "0009_alter_student_name_ar"),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='student',
-            name='age',
-        ),
+        migrations.RemoveField(model_name="student", name="age",),
         migrations.AddField(
-            model_name='student',
-            name='dob',
+            model_name="student",
+            name="dob",
             field=models.DateTimeField(blank=True, null=True),
         ),
     ]

@@ -7,13 +7,15 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0007_auto_20210928_1507'),
+        ("core", "0007_auto_20210928_1507"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='student',
-            name='name_ar',
-            field=apps.core.fields.names.ArabicNameField(blank=True, max_length=256, null=True, unique=True),
+            model_name="student",
+            name="name_ar",
+            field=apps.core.fields.names.ArabicNameField(
+                blank=True, max_length=256, null=True, unique=True
+            ),
         ),
     ]

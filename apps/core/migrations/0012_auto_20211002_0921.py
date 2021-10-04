@@ -7,17 +7,14 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0011_alter_student_dob'),
+        ("core", "0011_alter_student_dob"),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='student',
-            name='dob',
-        ),
+        migrations.RemoveField(model_name="student", name="dob",),
         migrations.AddField(
-            model_name='student',
-            name='age',
+            model_name="student",
+            name="age",
             field=apps.core.fields.general.AgeField(blank=True, null=True),
         ),
     ]

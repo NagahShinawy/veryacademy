@@ -4,9 +4,17 @@ from apps.core.models import Student, Teacher
 
 @admin.register(Student)
 class StudentModelAdmin(admin.ModelAdmin):
-    list_display = ("id", "firstname", "gender", "age", "teacher", "classroom", "salary")
+    list_display = (
+        "id",
+        "firstname",
+        "gender",
+        "age",
+        "teacher",
+        "classroom",
+        "salary",
+    )
     list_editable = ("age", "salary")
-    list_filter = ("classroom", )
+    list_filter = ("classroom",)
 
 
 @admin.register(Teacher)
