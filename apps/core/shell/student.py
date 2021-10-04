@@ -180,4 +180,15 @@ students = Student.objects.raw("SELECT * FROM core_student WHERE id = 7;")
 for student in students:
     print(student)
 
+print("#" * 100)
+
+
+# ####################################### reverse the ordering of the queryset ###########################
+
+# reverse works if the ordered  = True
+males = Student.objects.get_males().order_by("id")
+
+print(males)
+males = males.reverse()
+print(males)
 # from apps.core.shell.student import *
