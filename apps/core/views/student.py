@@ -181,9 +181,10 @@ def select_individual(request):
 
 
 def raw(request):
-    sql = "SELECT * FROM core_student WHERE id IN (1, 6, 8)"
+    # using to perform another action like index, limit, ....
+    sql = 'SELECT "core_student"."id" FROM core_student WHERE id IN (1, 6, 8)'
 
-    students = Student.objects.raw(sql)
+    students = Student.objects.raw(sql)  # RawQuerySet obj
     return render(
         request=request,
         template_name="students/home.html",

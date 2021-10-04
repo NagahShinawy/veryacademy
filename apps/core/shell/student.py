@@ -175,6 +175,8 @@ print("#" * 100)
 
 # ####################################### raw: using sql raw ###########################
 
+# using to perform another action like index, limit, ....
+
 students = Student.objects.raw("SELECT * FROM core_student WHERE id = 7;")
 
 for student in students:
