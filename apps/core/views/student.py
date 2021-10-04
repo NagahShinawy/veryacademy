@@ -178,3 +178,14 @@ def select_individual(request):
         template_name="students/home.html",
         context={"students": students, "primary": primary, "secondary": secondary},
     )
+
+
+def raw(request):
+    sql = "SELECT * FROM core_student WHERE id IN (1, 6, 8)"
+
+    students = Student.objects.raw(sql)
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={"students": students},
+    )

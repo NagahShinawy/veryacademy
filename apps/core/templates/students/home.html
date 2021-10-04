@@ -70,10 +70,16 @@
              <li>{{ forloop.counter }} - {{ student.firstname }} - {{ student.gender }} - {{ student.age }} - {{ student.classroom }}</li>
          {% endfor %}
 
-     <hr>
+    <hr>
     <h3>Secondary: {{ secondary.count }}</h3>
          {% for student in secondary %}
              <li>{{ forloop.counter }} - {{ student.firstname }} - {{ student.classroom }}</li>
+         {% endfor %}
+
+    <hr>
+    <h3>Raw: {{ students.count }}</h3>
+         {% for student in students %}
+             <li>{{ forloop.counter }} - {{ student.id }} - {{ student.firstname }} - {{ student.classroom }}</li>
          {% endfor %}
 
 {% endblock %}

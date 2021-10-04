@@ -9,6 +9,7 @@ from .student import (
     lower,
     not_query,
     select_individual,
+    raw,
 )
 
 __all__ = [
@@ -21,5 +22,6 @@ __all__ = [
     "salaries",
     "lower",
     "not_query",
-    "select_individual"
+    "select_individual",
+    "raw"
 ]

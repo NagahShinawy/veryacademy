@@ -10,6 +10,7 @@ from apps.core.views import (
     lower,
     not_query,
     select_individual,
+    raw,
 )
 
 app_name = "student"
@@ -25,4 +26,5 @@ urlpatterns = [
     path("lower/", lower, name="lower"),
     path("not_query/", not_query, name="not_query"),
     path("select_individual/", select_individual, name="select_individual"),
+    path("raw/", raw, name="raw"),
 ]
