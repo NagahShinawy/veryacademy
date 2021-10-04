@@ -1,3 +1,4 @@
+from collections import namedtuple
 from django.db import connection
 from django.db.models import Q
 from django.db.models.functions import Lower, Upper, Replace
@@ -194,7 +195,34 @@ def raw(request):
     stds = Student.objects.raw(sql.raw_query)  # RawQuerySet obj
     stds = Student.objects.raw(all_stds)[:3]  # limit queryset
     return render(
-        request=request,
-        template_name="students/home.html",
-        context={"students": stds},
+        request=request, template_name="students/home.html", context={"students": stds},
+    )
+
+
+def sql(request):
+    Std = namedtuple(
+        "Student",
+        [
+            "id",
+            "firstname",
+            "name_ar",
+            "name_en",
+            "surname",
+            "age",
+            "classroom",
+            "teacher",
+            "password",
+            "gender",
+            "salary"
+        ],
+    )
+    # execute sql commands directly to db
+    with connection.cursor() as cursor:
+        cursor.execute(all_stds)
+        row = cursor.fetchone()
+        rows = cursor.fetchall()
+    print(row)
+    std = [Std(*row) for row in rows]
+    return render(
+        request=request, template_name="students/home.html", context={"students": std},
     )

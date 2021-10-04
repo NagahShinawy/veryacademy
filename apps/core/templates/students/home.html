@@ -82,4 +82,10 @@
              <li>{{ forloop.counter }} - {{ student.id }} - {{ student.firstname }} - {{ student.classroom }}</li>
          {% endfor %}
 
+    <hr>
+    <h3>SQL connection: {{ students.length }}</h3>
+         {% for student in students %}
+             <li>{{ forloop.counter }} - {{ student.id }} - {{ student.firstname }} - {{ student.classroom }}</li>
+         {% endfor %}
+
 {% endblock %}

@@ -10,6 +10,7 @@ from .student import (
     not_query,
     select_individual,
     raw,
+    sql,
 )
 
 __all__ = [
@@ -23,5 +24,6 @@ __all__ = [
     "lower",
     "not_query",
     "select_individual",
-    "raw"
+    "raw",
+    "sql",
 ]

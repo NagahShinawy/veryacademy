@@ -11,6 +11,7 @@ from apps.core.views import (
     not_query,
     select_individual,
     raw,
+    sql,
 )
 
 app_name = "student"
@@ -27,4 +28,5 @@ urlpatterns = [
     path("not_query/", not_query, name="not_query"),
     path("select_individual/", select_individual, name="select_individual"),
     path("raw/", raw, name="raw"),
+    path("sql/", sql, name="sql"),
 ]
