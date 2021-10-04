@@ -58,5 +58,10 @@
              <li>{{ forloop.counter }}-{{ adutl_female }} - {{ adutl_female.gender }} - {{ adutl_female.age }}</li>
          {% endfor %}
 
+    <hr>
+    <h3>All individual: {{ students.count }}</h3>
+         {% for student in students %}
+             <li>{{ forloop.counter }} - {{ student.firstname }} - {{ student.gender }} - {{ student.age }}</li>
+         {% endfor %}
 
 {% endblock %}

@@ -164,3 +164,12 @@ def not_query(request):
             "adult_females": adult_females,
         },
     )
+
+
+def select_individual(request):
+    students = Student.objects.values("firstname", "age")
+    return render(
+        request=request,
+        template_name="students/home.html",
+        context={"students": students},
+    )

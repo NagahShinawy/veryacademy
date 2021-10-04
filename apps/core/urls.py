@@ -9,6 +9,7 @@ from apps.core.views import (
     salaries,
     lower,
     not_query,
+    select_individual,
 )
 
 app_name = "student"
@@ -23,4 +24,5 @@ urlpatterns = [
     path("salaries/", salaries, name="salaries"),
     path("lower/", lower, name="lower"),
     path("not_query/", not_query, name="not_query"),
+    path("select_individual/", select_individual, name="select_individual"),
 ]
