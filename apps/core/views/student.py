@@ -3,7 +3,7 @@ from django.db import connection
 from django.db.models import Q
 from django.db.models.functions import Lower, Upper, Replace
 from django.shortcuts import render
-from apps.core.models import Student, Teacher, dictfetchall
+from apps.core.models import Student, Teacher, dictfetchall, namedtuplefetchall
 from apps.core.choices import Gender
 from apps.core.sql_raws import SelectStatement, all_stds
 
@@ -221,7 +221,8 @@ def sql(request):
         cursor.execute(all_stds)
         # row = cursor.fetchone()
         # rows = cursor.fetchall()
-        students = dictfetchall(cursor)
+        # students = dictfetchall(cursor)
+        students = namedtuplefetchall(cursor)
     # print(rows)
     # std = [Std(*row) for row in rows]
     print(students)  # list of objs ===> [ {}, {}, {}, {}, ... ]
