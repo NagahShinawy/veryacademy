@@ -4,7 +4,7 @@ from django.db.models.functions import Lower, Upper, Replace
 from django.shortcuts import render
 from apps.core.models import Student, Teacher
 from apps.core.choices import Gender
-from apps.core.sql_raws import SelectStatement
+from apps.core.sql_raws import SelectStatement, all_stds
 
 
 def students_list(request):
@@ -191,9 +191,10 @@ def raw(request):
     )
     other = "WHERE id IN (1, 6, 8)"
     sql = SelectStatement(model, *fields, other=other)
-    students = Student.objects.raw(sql.raw_query)  # RawQuerySet obj
+    stds = Student.objects.raw(sql.raw_query)  # RawQuerySet obj
+    stds = Student.objects.raw(all_stds)
     return render(
         request=request,
         template_name="students/home.html",
-        context={"students": students},
+        context={"students": stds},
     )
