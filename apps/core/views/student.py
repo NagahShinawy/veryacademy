@@ -4,6 +4,7 @@ from django.db.models.functions import Lower, Upper, Replace
 from django.shortcuts import render
 from apps.core.models import Student, Teacher
 from apps.core.choices import Gender
+from apps.core.sql_raws import SelectStatement
 
 
 def students_list(request):
@@ -182,9 +183,15 @@ def select_individual(request):
 
 def raw(request):
     # using to perform another action like index, limit, ....
-    sql = 'SELECT "core_student"."id" FROM core_student WHERE id IN (1, 6, 8)'
-
-    students = Student.objects.raw(sql)  # RawQuerySet obj
+    # sql = 'SELECT "core_student"."id" FROM core_student WHERE id IN (1, 6, 8)'
+    model = "core_student"
+    fields = (
+        '"core_student"."id"',
+        '"core_student"."age"',
+    )
+    other = "WHERE id IN (1, 6, 8)"
+    sql = SelectStatement(model, *fields, other=other)
+    students = Student.objects.raw(sql.raw_query)  # RawQuerySet obj
     return render(
         request=request,
         template_name="students/home.html",

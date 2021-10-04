@@ -1,3 +1,3 @@
-"""
-created by Nagaj at 03/10/2021
-"""
+from .statement import SQLStatement, SelectStatement
+
+__all_ = ["SQLStatement", "SelectStatement"]
