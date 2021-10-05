@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import DeleteView, DetailView, ListView
+from django.views.generic import DeleteView, DetailView, ListView, UpdateView
 
 from apps.core.models import Book
 
@@ -29,3 +29,11 @@ class DeleteBookView(DeleteView):
     success_url = reverse_lazy("books:books_list")
     template_name = "books/confirm-delete.html"
     context_object_name = "book"
+
+
+class EditBookView(UpdateView):
+    model = Book
+    pk_url_kwarg = "pk"
+    template_name = "books/edit.html"
+    context_object_name = "book"
+    fields = "__all__"

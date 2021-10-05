@@ -3,13 +3,14 @@ from apps.core.views import (
     BooksList,
     SingleBookView,
     DeleteBookView,
-
+    EditBookView,
 )
 
 app_name = "books"
 
 urlpatterns = [
     path("books/", BooksList.as_view(), name="books_list"),
-    path("books/<int:pk>", SingleBookView.as_view(), name="single_book"),
-    path("delete_book/<int:pk>", DeleteBookView.as_view(), name="delete_book"),
+    path("books/<int:pk>", SingleBookView.as_view(), name="single"),
+    path("delete/<int:pk>", DeleteBookView.as_view(), name="delete"),
+    path("edit/<int:pk>", EditBookView.as_view(), name="edit"),
 ]

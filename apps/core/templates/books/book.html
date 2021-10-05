@@ -7,7 +7,8 @@
       <h2 class="pt-5">{{book.title}}</h2>
       <p>{{book.excerpt}}</p>
     </div>
-      <a href="{% url 'book:delete_book' book.pk %}">Delete</a>
+      <a href="{% url 'book:delete' book.pk %}">Delete</a>
+      <a href="{% url 'book:edit' book.pk %}">Edit</a>
   </div>
 </div>
 {% endblock %}

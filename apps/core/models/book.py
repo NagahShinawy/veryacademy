@@ -6,8 +6,9 @@ from django.contrib.auth.models import User
 
 class Book(models.Model):
 
-    SINGLE_VIEW_NAME = "books:single_book"
-    DELETE_VIEW_NAME = "books:delete_book"
+    SINGLE_VIEW_NAME = "books:single"
+    DELETE_VIEW_NAME = "books:delete"
+    UPDATE_VIEW_NAME = "books:update"
 
     title = models.CharField(max_length=200)
     excerpt = models.TextField(null=True)
@@ -24,6 +25,10 @@ class Book(models.Model):
     @property
     def delete_url(self):
         return reverse(self.DELETE_VIEW_NAME, args=[self.pk])
+
+    @property
+    def update_url(self):
+        return reverse(self.UPDATE_VIEW_NAME, args=[self.pk])
 
     class Meta:
         ordering = ["-published"]
