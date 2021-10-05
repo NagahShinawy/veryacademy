@@ -16,8 +16,7 @@ class Book(models.Model):
     has_offer = models.BooleanField(default=False)
 
     def get_absolute_url(self):
-        # return reverse("books:single", args=[self.slug])
-        return ""
+        return reverse("books:single_book", args=[self.pk])
 
     class Meta:
         ordering = ["-published"]

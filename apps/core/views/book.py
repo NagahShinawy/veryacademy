@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from apps.core.models import Book
 
 
@@ -12,3 +12,9 @@ class BooksList(ListView):
         context = super(BooksList, self).get_context_data()
         context["offers"] = self.model.objects.filter(has_offer=True)
         return context
+
+
+class SingleBookView(DetailView):
+    model = Book
+    template_name = "books/book.html"
+    context_object_name = "book"
