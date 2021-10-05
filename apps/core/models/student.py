@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from apps.core.managers import StudentManager, TeacherManager
 from apps.core.choices import Gender, ExperienceLevel
 from apps.core.fields import ArabicNameField, EnglishNameField, AgeField
@@ -43,3 +44,14 @@ class Student(models.Model):
     @property
     def is_female(self):
         return self.gender == Gender.FEMALE
+
+    # @property
+    # def age(self):
+    #     if not self.dob:
+    #         return
+    #     now = timezone.now()
+    #     return (
+    #         now.year
+    #         - self.dob.year
+    #         - ((now.month, now.day) < (self.dob.month, self.dob.day))
+    #     )
