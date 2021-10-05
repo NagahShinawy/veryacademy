@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 class Book(models.Model):
 
+    SINGLE_VIEW_NAME = "books:single_book"
+    DELETE_VIEW_NAME = "books:delete_book"
+
     title = models.CharField(max_length=200)
     excerpt = models.TextField(null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="books")
@@ -16,8 +19,11 @@ class Book(models.Model):
     has_offer = models.BooleanField(default=False)
 
     def get_absolute_url(self):
-        # return reverse("books:single", args=[self.slug])
-        return ""
+        return reverse(self.SINGLE_VIEW_NAME, args=[self.pk])
+
+    @property
+    def delete_url(self):
+        return reverse(self.DELETE_VIEW_NAME, args=[self.pk])
 
     class Meta:
         ordering = ["-published"]
