@@ -25,4 +25,8 @@
     </div>
 </div>
 
+    <hr>
+    {% for book in offers %}
+            <h4>{{ book }} - {{ book.has_offer }}</h4>
+    {% endfor %}
 {% endblock %}

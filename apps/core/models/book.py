@@ -13,6 +13,7 @@ class Book(models.Model):
     updated = models.DateTimeField(auto_now=True)
     published = models.DateTimeField(default=timezone.now)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    has_offer = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         # return reverse("books:single", args=[self.slug])
