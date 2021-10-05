@@ -13,7 +13,7 @@ from .student import (
     sql,
 )
 
-from .book import BooksList, SingleBookView
+from .book import BooksList, SingleBookView, DeleteBookView
 
 __all__ = [
     "students_list",
@@ -30,4 +30,5 @@ __all__ = [
     "sql",
     "BooksList",
     "SingleBookView",
+    "DeleteBookView",
 ]
