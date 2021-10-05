@@ -8,7 +8,7 @@ class Book(models.Model):
 
     title = models.CharField(max_length=200)
     excerpt = models.TextField(null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="core")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="books")
     slug = models.SlugField(max_length=100, unique=True, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     published = models.DateTimeField(default=timezone.now)
