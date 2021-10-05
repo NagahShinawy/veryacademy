@@ -3,7 +3,7 @@ from apps.core.views import (
     BooksList,
 )
 
-app_name = "book"
+app_name = "books"
 
 urlpatterns = [
     path("books/", BooksList.as_view(), name="books_list"),
