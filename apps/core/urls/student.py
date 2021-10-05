@@ -12,7 +12,6 @@ from apps.core.views import (
     select_individual,
     raw,
     sql,
-    BooksList,
 )
 
 app_name = "student"
@@ -30,5 +29,4 @@ urlpatterns = [
     path("select_individual/", select_individual, name="select_individual"),
     path("raw/", raw, name="raw"),
     path("sql/", sql, name="sql"),
-    path("books/", BooksList.as_view(), name="books"),
 ]
