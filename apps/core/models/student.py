@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils import timezone
+
+from apps.core.choices import ExperienceLevel, Gender
+from apps.core.fields import AgeField, ArabicNameField, EnglishNameField
 from apps.core.managers import StudentManager, TeacherManager
-from apps.core.choices import Gender, ExperienceLevel
-from apps.core.fields import ArabicNameField, EnglishNameField, AgeField
 
 
 class Teacher(models.Model):

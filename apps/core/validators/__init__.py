@@ -1,9 +1,9 @@
 from .base_validation import RangeValidator
 from .password_validator import (
-    NumberValidator,
-    UppercaseValidator,
     LowercaseValidator,
+    NumberValidator,
     SymbolValidator,
+    UppercaseValidator,
 )
 
 __all__ = [

@@ -1,5 +1,7 @@
 from itertools import chain
+
 from django.db import models
+
 from apps.core.choices import Gender
 
 

@@ -1,9 +1,9 @@
 from .patterns import (
-    NumberPatternMixin,
-    UpperCasePatternMixin,
-    LowerCasePatternMixin,
-    SymbolPatternMixin,
     BasePatternMixin,
+    LowerCasePatternMixin,
+    NumberPatternMixin,
+    SymbolPatternMixin,
+    UpperCasePatternMixin,
 )
 
 __all__ = [

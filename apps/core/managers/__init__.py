@@ -1,4 +1,5 @@
+from .book import BookManager
 from .student import StudentManager
 from .teacher import TeacherManager
 
-__all__ = ["StudentManager", "TeacherManager"]
+__all__ = ["StudentManager", "TeacherManager", "BookManager"]

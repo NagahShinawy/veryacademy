@@ -1,5 +1,6 @@
 from django.contrib import admin
-from apps.core.models import Student, Teacher, Book
+
+from apps.core.models import Book, Student, Teacher
 
 
 @admin.register(Student)
@@ -26,4 +27,4 @@ class TeacherModelAdmin(admin.ModelAdmin):
 @admin.register(Book)
 class BookModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "has_offer")
-    list_editable = ("has_offer", )
+    list_editable = ("has_offer",)

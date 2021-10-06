@@ -1,10 +1,12 @@
 from collections import namedtuple
+
 from django.db import connection
 from django.db.models import Q
-from django.db.models.functions import Lower, Upper, Replace
+from django.db.models.functions import Lower, Replace, Upper
 from django.shortcuts import render
-from apps.core.models import Student, Teacher, dictfetchall, namedtuplefetchall
+
 from apps.core.choices import Gender
+from apps.core.models import Student, Teacher, dictfetchall, namedtuplefetchall
 from apps.core.sql_raws import SelectStatement, all_stds
 
 

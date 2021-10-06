@@ -1,4 +1,4 @@
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import DeleteView, DetailView, ListView, UpdateView
 
 from apps.core.models import Book
@@ -39,4 +39,13 @@ class EditBookView(UpdateView):
     fields = "__all__"
 
     def get_success_url(self):
-        return reverse("books:single", args=(self.object.pk, ))
+        return reverse("books:single", args=(self.object.pk,))
+
+
+class OfferBooksView(ListView):
+    model = Book
+    template_name = "books/index.html"
+    context_object_name = "books"
+
+    def get_queryset(self):
+        return self.model.objects.get_offers()

@@ -1,6 +1,7 @@
 from django.db.models import Q
-from apps.core.models import Student, Teacher
+
 from apps.core.choices import Gender
+from apps.core.models import Student, Teacher
 
 UNDER_AGE = 18
 
