@@ -54,7 +54,10 @@ class OfferBooksView(ListView):
     context_object_name = "books"
 
     def get_queryset(self):
-        return self.model.objects.get_offers()
+        return (
+            self.model.objects.get_by_author(self.request.user)
+            & self.model.objects.get_offers()
+        )
 
 
 class CreateBookView(CreateView):

@@ -26,5 +26,5 @@ class TeacherModelAdmin(admin.ModelAdmin):
 
 @admin.register(Book)
 class BookModelAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "has_offer")
+    list_display = ("id", "title", "has_offer", "author")
     list_editable = ("has_offer",)
