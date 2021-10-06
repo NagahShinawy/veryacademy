@@ -7,3 +7,6 @@ class BookManager(models.Manager):
 
     def get_by_author(self, author):
         return self.filter(author=author)
+
+    def get_by_status(self, status):
+        return self.filter(status__iexact=status)

@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import (
     DeleteView,
@@ -8,6 +9,7 @@ from django.views.generic import (
 )
 
 from apps.core.models import Book
+from apps.core.choices import BookStatus
 
 
 class BooksList(ListView):
@@ -27,6 +29,12 @@ class SingleBookView(DetailView):
     template_name = "books/book.html"
     context_object_name = "book"
     pk_url_kwarg = "pk"
+
+    def get_object(self, queryset=None):
+        book = self.model.objects.get(pk=self.kwargs.get("pk"))
+        if book.status == BookStatus.DRAFT:
+            raise Http404()
+        return book
 
 
 class DeleteBookView(DeleteView):

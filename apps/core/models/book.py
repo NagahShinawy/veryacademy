@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from apps.core.managers import BookManager
+from apps.core.choices import BookStatus
 
 
 class Book(models.Model):
@@ -19,6 +20,7 @@ class Book(models.Model):
     updated = models.DateTimeField(auto_now=True)
     published = models.DateTimeField(default=timezone.now)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    status = models.CharField(max_length=10, choices=BookStatus.choices, default=BookStatus.DRAFT)
     has_offer = models.BooleanField(default=False)
 
     objects = BookManager()
