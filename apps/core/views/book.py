@@ -20,7 +20,9 @@ class BooksList(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(BooksList, self).get_context_data()
-        context["offers"] = self.model.objects.filter(has_offer=True)
+        context["offers"] = self.get_queryset() & self.model.objects.filter(
+            has_offer=True
+        )
         return context
 
     def get_queryset(self):
