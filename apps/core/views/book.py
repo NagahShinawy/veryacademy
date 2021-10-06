@@ -1,5 +1,11 @@
 from django.urls import reverse, reverse_lazy
-from django.views.generic import DeleteView, DetailView, ListView, UpdateView
+from django.views.generic import (
+    DeleteView,
+    DetailView,
+    ListView,
+    UpdateView,
+    CreateView,
+)
 
 from apps.core.models import Book
 
@@ -49,3 +55,10 @@ class OfferBooksView(ListView):
 
     def get_queryset(self):
         return self.model.objects.get_offers()
+
+
+class CreateBookView(CreateView):
+    model = Book
+    template_name = "books/add.html"
+    fields = "__all__"
+    success_url = reverse_lazy("books:books_list")

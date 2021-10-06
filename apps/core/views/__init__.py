@@ -4,6 +4,7 @@ from .book import (
     EditBookView,
     OfferBooksView,
     SingleBookView,
+    CreateBookView,
 )
 from .student import (
     lower,
@@ -37,4 +38,5 @@ __all__ = [
     "SingleBookView",
     "DeleteBookView",
     "EditBookView",
+    "CreateBookView",
 ]
