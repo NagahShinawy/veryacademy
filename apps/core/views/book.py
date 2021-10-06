@@ -23,6 +23,9 @@ class BooksList(ListView):
         context["offers"] = self.model.objects.filter(has_offer=True)
         return context
 
+    def get_queryset(self):
+        return self.model.objects.get_by_author(author=self.request.user)
+
 
 class SingleBookView(DetailView):
     model = Book
