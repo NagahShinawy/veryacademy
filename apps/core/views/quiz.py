@@ -23,3 +23,10 @@ class RetrieveQuizAPIView(generics.RetrieveAPIView):
 class CategoryAPIView(generics.ListAPIView):
     serializer_class = CategoriesSerializer
     queryset = Category.objects.all()
+
+
+class RetrieveCategoryAPIView(RetrieveQuizAPIView):
+    serializer_class = CategoriesSerializer
+
+    def get_object(self):
+        return Category.objects.get(pk=self.kwargs.get("pk"))
