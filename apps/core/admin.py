@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.core.models import Book, Student, Teacher
+from apps.core.models import Book, Student, Teacher, Quizzes, Category
 
 
 @admin.register(Student)
@@ -26,5 +26,16 @@ class TeacherModelAdmin(admin.ModelAdmin):
 
 @admin.register(Book)
 class BookModelAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "has_offer", "author", "status")
+    list_display = ("id", "title", "has_offer", "author", "status", "slug")
     list_editable = ("has_offer", "status")
+
+
+@admin.register(Quizzes)
+class QuizModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "category", "created")
+    list_editable = ("title", "category")
+
+
+@admin.register(Category)
+class CategoryModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "name")
