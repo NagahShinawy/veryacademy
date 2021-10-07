@@ -11,7 +11,6 @@ class CustomDatetimeMixin(serializers.Serializer):
 
 
 class QuizSerializer(serializers.ModelSerializer, CustomDatetimeMixin):
-
     class Meta:
         model = Quizzes
         fields = [
@@ -27,5 +26,8 @@ class QuizSerializer(serializers.ModelSerializer, CustomDatetimeMixin):
 
 
 class CategoriesSerializer(serializers.ModelSerializer):
-    model = Category
-    fields = ["id", "title"]
+    quizzes = QuizSerializer(many=True)
+
+    class Meta:
+        model = Category
+        fields = ["id", "name", "quizzes"]

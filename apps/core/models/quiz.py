@@ -18,7 +18,7 @@ class Quizzes(models.Model):
     title = models.CharField(
         max_length=255, default=_("New Quiz"), verbose_name=_("Quiz Title")
     )
-    category = models.ForeignKey(Category, default=1, on_delete=models.DO_NOTHING)
+    category = models.ForeignKey(Category, default=1, on_delete=models.DO_NOTHING, related_name="quizzes")
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
