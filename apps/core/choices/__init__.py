@@ -4,4 +4,3 @@ from .book import BookStatus
 
 
 __all__ = ["Gender", "ExperienceLevel", "BookStatus"]
-
