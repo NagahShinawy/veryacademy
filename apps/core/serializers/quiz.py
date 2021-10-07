@@ -1,16 +1,11 @@
-from rest_framework import serializers
 from django.conf import settings
-from apps.core.models import Quizzes, Category
+from rest_framework import serializers
+from apps.core.models import Category, Quizzes
 
 
-class CustomDatetimeMixin(serializers.Serializer):
+class QuizSerializer(serializers.ModelSerializer):
     created = serializers.DateTimeField(format=settings.QUIZ_DATETIME_FORMAT)
 
-    class Meta:
-        abstract = True
-
-
-class QuizSerializer(serializers.ModelSerializer, CustomDatetimeMixin):
     class Meta:
         model = Quizzes
         fields = [
