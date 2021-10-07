@@ -1,3 +1,3 @@
-"""
-created by Nagaj at 07/10/2021
-"""
+from .quiz import QuizSerializer, CategoriesSerializer
+
+__all__ = ["QuizSerializer", "CategoriesSerializer"]

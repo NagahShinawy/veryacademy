@@ -158,3 +158,5 @@ LOGGING = {
     },
     "root": {"handlers": ["console"], "level": "DEBUG",},
 }
+
+QUIZ_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"

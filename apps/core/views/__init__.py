@@ -21,6 +21,8 @@ from .student import (
     union,
 )
 
+from .quiz import QuizAPIView
+
 __all__ = [
     "students_list",
     "students_list_",
@@ -39,4 +41,5 @@ __all__ = [
     "DeleteBookView",
     "EditBookView",
     "CreateBookView",
+    "QuizAPIView",
 ]
