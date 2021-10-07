@@ -21,7 +21,12 @@ from .student import (
     union,
 )
 
-from .quiz import QuizAPIView, CategoryAPIView, RetrieveQuizAPIView, RetrieveCategoryAPIView
+from .quiz import (
+    QuizAPIView,
+    CategoryAPIView,
+    RetrieveQuizAPIView,
+    RetrieveCategoryAPIView,
+)
 
 __all__ = [
     "students_list",
