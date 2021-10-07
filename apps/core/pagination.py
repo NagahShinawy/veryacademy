@@ -10,6 +10,7 @@ class CustomPagination(PageNumberPagination):
         return Response(
             {
                 "total": self.page.paginator.count,
+                "count": len(data),
                 "current_page": self.page.number,
                 "pages": self.page.paginator.num_pages,
                 "next": self.get_next_link(),
@@ -17,3 +18,11 @@ class CustomPagination(PageNumberPagination):
                 "data": data,
             }
         )
+
+
+class QuizPagination(CustomPagination):
+    page_size = 5
+
+
+class CategoryPagination(CustomPagination):
+    page_size = 3
