@@ -1,4 +1,5 @@
 from rest_framework import generics
+from apps.core.pagination import CustomPagination
 from apps.core.serializers import QuizSerializer, CategoriesSerializer
 from apps.core.models import Quizzes, Category
 
@@ -6,6 +7,7 @@ from apps.core.models import Quizzes, Category
 class QuizAPIView(generics.ListAPIView):
     serializer_class = QuizSerializer
     queryset = Quizzes.objects.all()
+    pagination_class = CustomPagination
 
 
 class RetrieveQuizAPIView(generics.RetrieveAPIView):
@@ -23,6 +25,7 @@ class RetrieveQuizAPIView(generics.RetrieveAPIView):
 class CategoryAPIView(generics.ListAPIView):
     serializer_class = CategoriesSerializer
     queryset = Category.objects.all()
+    pagination_class = CustomPagination
 
 
 class RetrieveCategoryAPIView(RetrieveQuizAPIView):
