@@ -5,17 +5,30 @@ from django.utils import timezone
 
 from apps.core.managers import BookManager
 from apps.core.choices import BookStatus
-from apps.core.mixins import TimeStampModelMixin, InfoModelMixin, GenderModelMixin, NationalIDField
+from apps.core.mixins import (
+    TimeStampModelMixin,
+    InfoModelMixin,
+    GenderModelMixin,
+    NationalIDField,
+    BasicInfoMixin,
+)
 
 
 class Author(InfoModelMixin, GenderModelMixin, TimeStampModelMixin, models.Model):
     """
     author model implement abstract model classes
     """
+
     national_id = NationalIDField()
 
     def __str__(self):
         return self.national_id
+
+
+class BasicProfile(BasicInfoMixin, models.Model):
+    """
+    basic info
+    """
 
 
 class Book(models.Model):

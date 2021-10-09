@@ -1,7 +1,5 @@
 from django.db import models
-from apps.core.validators import (
-    national_id_validator,
-)
+from apps.core.validators import national_id_validator
 
 
 class GenderModelMixin(models.Model):
@@ -39,6 +37,19 @@ class InfoModelMixin(models.Model):
 
     class Meta:
         abstract = True
+
+
+class BasicInfoMixin(models.Model):
+    name = models.CharField(max_length=256, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    dob = models.DateField(null=True, blank=True, verbose_name="Date Of Birth")
+
+    class Meta:
+        abstract = True
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.name
 
 
 class CreatedModelMixin(models.Model):
