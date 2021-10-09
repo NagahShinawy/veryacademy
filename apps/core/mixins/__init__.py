@@ -11,6 +11,7 @@ from .db import (
     TimeStampModelMixin,
     CreatedModelMixin,
     UpdatedModelMixin,
+    NationalIDField,
 )
 
 
@@ -25,4 +26,5 @@ __all__ = [
     "TimeStampModelMixin",
     "CreatedModelMixin",
     "UpdatedModelMixin",
+    "NationalIDField"
 ]
