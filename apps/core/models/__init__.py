@@ -1,4 +1,4 @@
-from .book import Author, BasicProfile, Book
+from .book import Author, BasicProfile, Book, Developer, TechLead
 from .quiz import Category, Quizzes
 from .student import Student, Teacher
 from .utils import dictfetchall, namedtuplefetchall
@@ -13,4 +13,6 @@ __all__ = [
     "Category",
     "Author",
     "BasicProfile",
+    "Developer",
+    "TechLead",
 ]

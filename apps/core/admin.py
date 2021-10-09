@@ -8,6 +8,8 @@ from apps.core.models import (
     Quizzes,
     Student,
     Teacher,
+    Developer,
+    TechLead,
 )
 
 
@@ -59,3 +61,13 @@ class AuthorModelAdmin(admin.ModelAdmin):
 class BasicProfileModelAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "email", "dob")
     list_editable = ("email",)
+
+
+@admin.register(Developer)
+class DeveloperModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "name")
+
+
+@admin.register(TechLead)
+class TechLeadModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "name", "senior_exp")

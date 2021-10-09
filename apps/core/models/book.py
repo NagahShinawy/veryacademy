@@ -30,6 +30,10 @@ class BasicProfile(BasicInfoMixin, models.Model):
     basic info
     """
 
+    # override ordering
+    class Meta:
+        ordering = ["name"]
+
 
 class Book(models.Model):
 
@@ -67,3 +71,18 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Developer(models.Model):
+    name = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["id"]
+
+
+# multi level inheritance
+class TechLead(Developer):
+    senior_exp = models.SmallIntegerField()
