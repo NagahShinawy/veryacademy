@@ -1,16 +1,19 @@
 from django.contrib import admin
 
 from apps.core.models import (
+    ISBN,
     Author,
     BasicProfile,
     Book,
     Category,
+    Developer,
+    Mobile,
     Quizzes,
     Student,
     Teacher,
-    Developer,
     TechLead,
-    ISBN,
+    MedicalItem,
+    MedicalItemExport,
 )
 
 
@@ -77,3 +80,18 @@ class DeveloperModelAdmin(admin.ModelAdmin):
 @admin.register(TechLead)
 class TechLeadModelAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "senior_exp")
+
+
+@admin.register(Mobile)
+class MobileModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "brand")
+
+
+@admin.register(MedicalItem)
+class MedicalItemModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "country")
+
+
+@admin.register(MedicalItemExport)
+class MedicalItemExportModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "country")

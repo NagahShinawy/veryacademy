@@ -5,7 +5,7 @@ from django.utils import timezone
 
 from apps.core.choices import BookStatus
 from apps.core.fields import NationalIDField
-from apps.core.managers import BookManager
+from apps.core.managers import BookManager, MedicalItemManager
 from apps.core.mixins import (
     BasicInfoMixin,
     GenderModelMixin,
@@ -73,7 +73,7 @@ class Book(models.Model):
         return self.title
 
 
-# multi level inheritance
+# multi level inheritance ( ISBN & Book models will be created with one2one relationship)
 class ISBN(Book):
     isbnum = models.TextField(verbose_name="ISBN", max_length=256)
 
@@ -88,6 +88,37 @@ class Developer(models.Model):
         ordering = ["id"]
 
 
-# multi level inheritance
+# multi level inheritance (Developer & TechLead models will be created with one2one relationship)
 class TechLead(Developer):
     senior_exp = models.SmallIntegerField()
+
+
+class Mobile(models.Model):
+    brand = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.brand
+
+
+class MedicalItem(models.Model):
+
+    title = models.CharField(max_length=256)
+
+    is_danger_for_pregnant = models.BooleanField(default=False)
+    country = models.CharField(max_length=256)
+
+    class Meta:
+        verbose_name = "Medical Item"
+
+    def __str__(self):
+        return self.title
+
+
+# extra functionality on the same model
+# NOT CREATED TABLE AT THE DB
+class MedicalItemExport(MedicalItem):
+    objects = MedicalItemManager()
+
+    class Meta:
+        proxy = True
+        ordering = ["id"]

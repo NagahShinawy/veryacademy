@@ -10,3 +10,10 @@ class BookManager(models.Manager):
 
     def get_by_status(self, status):
         return self.filter(status__iexact=status)
+
+
+class MedicalItemManager(models.Manager):
+    EGYPT = "egypt"
+
+    def get_queryset(self):
+        return super().get_queryset().exclude(country__iexact=self.EGYPT)
