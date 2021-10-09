@@ -24,13 +24,7 @@ class RangeValidator(MinValueValidator):
 class NationalIDValidator(RegexValidator):
     regex = r"^\d{14}$"
     EXACT_DIGITS = 14
-    message = "national id must be {exact_digits} digits not {value} digits"
-
-    def __call__(self, value):
-        self.message = self.message.format(
-            exact_digits=self.EXACT_DIGITS, value=len(str(value))
-        )
-        super(NationalIDValidator, self).__call__(value)
+    message = f"national id must be exact {EXACT_DIGITS} digits."
 
 
 national_id_validator = NationalIDValidator()
