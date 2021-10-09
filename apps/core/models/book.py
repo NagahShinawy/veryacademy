@@ -73,6 +73,11 @@ class Book(models.Model):
         return self.title
 
 
+# multi level inheritance
+class ISBN(Book):
+    isbnum = models.TextField(verbose_name="ISBN", max_length=256)
+
+
 class Developer(models.Model):
     name = models.CharField(max_length=256)
 

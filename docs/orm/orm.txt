@@ -101,9 +101,24 @@ qs = Student.objects.values("salary").union(Teacher.objects.values("dob"))
 print(qs)
 
 
-################################### Using function tools ##############################################################
+################################### 11- Using function tools ##############################################################
 
 1- using function tools [Lower, Upper] with values_list
 
 students = Student.objects.values_list(Lower("firstname"))
 students = Student.objects.values_list(Upper("firstname"))
+
+
+################################### 12- Model Inheritance ######################################
+
+1- abctract: ABC base class to use moel fields in child class without create db model, just use fields
+
+abstract class NOT INCLUDED IN THE DATABASE.
+=====================
+2- multi level inhertance [ one-one relationship]
+TechLead is Developer [ create TechLead obj save to Developer model but obj will be saved as ref with new fields in Su model table]
+
+- Base class and sub class included in the db with one2one relationship
+- save the same data with means if you update from class , the same obj will be updated in the other class
+=====================
+3- Proxy model

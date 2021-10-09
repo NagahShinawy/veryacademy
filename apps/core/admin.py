@@ -10,6 +10,7 @@ from apps.core.models import (
     Teacher,
     Developer,
     TechLead,
+    ISBN,
 )
 
 
@@ -38,6 +39,11 @@ class TeacherModelAdmin(admin.ModelAdmin):
 class BookModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "has_offer", "author", "status", "slug")
     list_editable = ("has_offer", "status")
+
+
+@admin.register(ISBN)
+class ISBNModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "author")
 
 
 @admin.register(Quizzes)
