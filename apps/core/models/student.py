@@ -2,11 +2,12 @@ from django.db import models
 from django.utils import timezone
 
 from apps.core.choices import ExperienceLevel, Gender
+from apps.core.mixins import GenderModelMixin
 from apps.core.fields import AgeField, ArabicNameField, EnglishNameField
 from apps.core.managers import StudentManager, TeacherManager
 
 
-class Teacher(models.Model):
+class Teacher(GenderModelMixin, models.Model):
     firstname = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
     level = models.CharField(
