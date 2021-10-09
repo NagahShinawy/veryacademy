@@ -1,8 +1,6 @@
 from django.db import models
 from apps.core.validators import (
-    NationalIDValidator,
-    RangeValidator,
-    NationalIDExactValueValidator,
+    national_id_validator,
 )
 
 
@@ -66,15 +64,13 @@ class TimeStampModelMixin(UpdatedModelMixin, CreatedModelMixin):
 class NationalIDField(models.CharField):
 
     ID_MAX_DIGITS = 14
+    ID_EXAMPLE = "11223344556677"
 
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = self.ID_MAX_DIGITS
         kwargs["validators"] = [
-            NationalIDValidator,
-            NationalIDExactValueValidator(
-                limit_value=self.ID_MAX_DIGITS, max_value=self.ID_MAX_DIGITS,
-            ),
+            national_id_validator,
         ]
-        kwargs["default"] = "11223344556677"
+        kwargs["default"] = self.ID_EXAMPLE
 
         super(NationalIDField, self).__init__(*args, **kwargs)

@@ -14,6 +14,9 @@ class Author(InfoModelMixin, GenderModelMixin, TimeStampModelMixin, models.Model
     """
     national_id = NationalIDField()
 
+    def __str__(self):
+        return self.national_id
+
 
 class Book(models.Model):
 

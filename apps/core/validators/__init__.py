@@ -1,4 +1,4 @@
-from .base_validation import RangeValidator, NationalIDValidator, NationalIDExactValueValidator
+from .base_validation import RangeValidator, national_id_validator
 from .password_validator import (
     LowercaseValidator,
     NumberValidator,
@@ -12,6 +12,5 @@ __all__ = [
     "UppercaseValidator",
     "LowercaseValidator",
     "SymbolValidator",
-    "NationalIDValidator",
-    "NationalIDExactValueValidator"
+    "national_id_validator"
 ]
