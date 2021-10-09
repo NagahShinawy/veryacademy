@@ -9,9 +9,10 @@ from apps.core.mixins import (
     TimeStampModelMixin,
     InfoModelMixin,
     GenderModelMixin,
-    NationalIDField,
     BasicInfoMixin,
 )
+
+from apps.core.fields import NationalIDField
 
 
 class Author(InfoModelMixin, GenderModelMixin, TimeStampModelMixin, models.Model):
