@@ -1,15 +1,15 @@
 from django.http import Http404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import (
+    CreateView,
     DeleteView,
     DetailView,
     ListView,
     UpdateView,
-    CreateView,
 )
 
-from apps.core.models import Book
 from apps.core.choices import BookStatus
+from apps.core.models import Book
 
 
 class BooksList(ListView):

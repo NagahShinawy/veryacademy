@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from apps.core.validators import RangeValidator
-from apps.core.validators import national_id_validator
+
+from apps.core.validators import RangeValidator, national_id_validator
 
 
 class AgeField(models.SmallIntegerField):

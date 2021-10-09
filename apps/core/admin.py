@@ -1,13 +1,13 @@
 from django.contrib import admin
 
 from apps.core.models import (
-    Book,
-    Student,
-    Teacher,
-    Quizzes,
-    Category,
     Author,
     BasicProfile,
+    Book,
+    Category,
+    Quizzes,
+    Student,
+    Teacher,
 )
 
 

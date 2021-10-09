@@ -1,10 +1,16 @@
 from .book import (
     BooksList,
+    CreateBookView,
     DeleteBookView,
     EditBookView,
     OfferBooksView,
     SingleBookView,
-    CreateBookView,
+)
+from .quiz import (
+    CategoryAPIView,
+    QuizAPIView,
+    RetrieveCategoryAPIView,
+    RetrieveQuizAPIView,
 )
 from .student import (
     lower,
@@ -19,13 +25,6 @@ from .student import (
     students_list_not_s,
     under_ages,
     union,
-)
-
-from .quiz import (
-    QuizAPIView,
-    CategoryAPIView,
-    RetrieveQuizAPIView,
-    RetrieveCategoryAPIView,
 )
 
 __all__ = [

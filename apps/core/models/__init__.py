@@ -1,6 +1,6 @@
-from .book import Book, Author, BasicProfile
+from .book import Author, BasicProfile, Book
+from .quiz import Category, Quizzes
 from .student import Student, Teacher
-from .quiz import Quizzes, Category
 from .utils import dictfetchall, namedtuplefetchall
 
 __all__ = [

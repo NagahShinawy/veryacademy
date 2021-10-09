@@ -12,5 +12,5 @@ __all__ = [
     "UppercaseValidator",
     "LowercaseValidator",
     "SymbolValidator",
-    "national_id_validator"
+    "national_id_validator",
 ]

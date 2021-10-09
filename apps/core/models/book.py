@@ -3,16 +3,15 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
-from apps.core.managers import BookManager
 from apps.core.choices import BookStatus
-from apps.core.mixins import (
-    TimeStampModelMixin,
-    InfoModelMixin,
-    GenderModelMixin,
-    BasicInfoMixin,
-)
-
 from apps.core.fields import NationalIDField
+from apps.core.managers import BookManager
+from apps.core.mixins import (
+    BasicInfoMixin,
+    GenderModelMixin,
+    InfoModelMixin,
+    TimeStampModelMixin,
+)
 
 
 class Author(InfoModelMixin, GenderModelMixin, TimeStampModelMixin, models.Model):

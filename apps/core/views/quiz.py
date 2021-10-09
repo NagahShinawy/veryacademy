@@ -1,7 +1,8 @@
 from rest_framework import generics
-from apps.core.pagination import QuizPagination, CategoryPagination
-from apps.core.serializers import QuizSerializer, CategoriesSerializer
-from apps.core.models import Quizzes, Category
+
+from apps.core.models import Category, Quizzes
+from apps.core.pagination import CategoryPagination, QuizPagination
+from apps.core.serializers import CategoriesSerializer, QuizSerializer
 
 
 class QuizAPIView(generics.ListAPIView):

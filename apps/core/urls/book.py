@@ -2,11 +2,11 @@ from django.urls import path
 
 from apps.core.views import (
     BooksList,
+    CreateBookView,
     DeleteBookView,
     EditBookView,
     OfferBooksView,
     SingleBookView,
-    CreateBookView,
 )
 
 app_name = "books"

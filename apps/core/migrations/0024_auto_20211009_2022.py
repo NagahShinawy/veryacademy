@@ -6,22 +6,26 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0023_basicprofile'),
+        ("core", "0023_basicprofile"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='basicprofile',
-            options={'ordering': ['id']},
+            name="basicprofile", options={"ordering": ["id"]},
         ),
         migrations.AddField(
-            model_name='basicprofile',
-            name='gender',
-            field=models.CharField(choices=[('m', 'Male'), ('f', 'Female'), ('n', 'Not Specified')], default='n', max_length=1, verbose_name='Gender'),
+            model_name="basicprofile",
+            name="gender",
+            field=models.CharField(
+                choices=[("m", "Male"), ("f", "Female"), ("n", "Not Specified")],
+                default="n",
+                max_length=1,
+                verbose_name="Gender",
+            ),
         ),
         migrations.AlterField(
-            model_name='basicprofile',
-            name='dob',
-            field=models.DateField(blank=True, null=True, verbose_name='Date Of Birth'),
+            model_name="basicprofile",
+            name="dob",
+            field=models.DateField(blank=True, null=True, verbose_name="Date Of Birth"),
         ),
     ]

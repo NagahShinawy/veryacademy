@@ -1,11 +1,11 @@
 from django.urls import path
+
 from apps.core.views import (
-    RetrieveQuizAPIView,
     CategoryAPIView,
     QuizAPIView,
     RetrieveCategoryAPIView,
+    RetrieveQuizAPIView,
 )
-
 
 app_name = "quiz"
 

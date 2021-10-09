@@ -1,3 +1,11 @@
+from .db import (
+    BasicInfoMixin,
+    CreatedModelMixin,
+    GenderModelMixin,
+    InfoModelMixin,
+    TimeStampModelMixin,
+    UpdatedModelMixin,
+)
 from .patterns import (
     BasePatternMixin,
     LowerCasePatternMixin,
@@ -5,15 +13,6 @@ from .patterns import (
     SymbolPatternMixin,
     UpperCasePatternMixin,
 )
-from .db import (
-    GenderModelMixin,
-    InfoModelMixin,
-    TimeStampModelMixin,
-    CreatedModelMixin,
-    UpdatedModelMixin,
-    BasicInfoMixin,
-)
-
 
 __all__ = [
     "BasePatternMixin",
