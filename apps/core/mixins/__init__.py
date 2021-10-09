@@ -5,7 +5,13 @@ from .patterns import (
     SymbolPatternMixin,
     UpperCasePatternMixin,
 )
-from .db import GenderModelMixin
+from .db import (
+    GenderModelMixin,
+    InfoModelMixin,
+    TimeStampModelMixin,
+    CreatedModelMixin,
+    UpdatedModelMixin,
+)
 
 
 __all__ = [
@@ -15,4 +21,8 @@ __all__ = [
     "LowerCasePatternMixin",
     "SymbolPatternMixin",
     "GenderModelMixin",
+    "InfoModelMixin",
+    "TimeStampModelMixin",
+    "CreatedModelMixin",
+    "UpdatedModelMixin",
 ]

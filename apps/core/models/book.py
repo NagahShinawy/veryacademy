@@ -5,6 +5,13 @@ from django.utils import timezone
 
 from apps.core.managers import BookManager
 from apps.core.choices import BookStatus
+from apps.core.mixins import TimeStampModelMixin, InfoModelMixin, GenderModelMixin
+
+
+class Author(InfoModelMixin, GenderModelMixin, TimeStampModelMixin, models.Model):
+    """
+    author model implement abstract model classes
+    """
 
 
 class Book(models.Model):

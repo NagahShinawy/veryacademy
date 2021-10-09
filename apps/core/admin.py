@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.core.models import Book, Student, Teacher, Quizzes, Category
+from apps.core.models import Book, Student, Teacher, Quizzes, Category, Author
 
 
 @admin.register(Student)
@@ -39,3 +39,9 @@ class QuizModelAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryModelAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
+
+
+@admin.register(Author)
+class AuthorModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "description", "gender", "created", "updated")
+    list_editable = list_display[1:-2]
