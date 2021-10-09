@@ -39,7 +39,7 @@ class InfoModelMixin(models.Model):
         abstract = True
 
 
-class BasicInfoMixin(models.Model):
+class BasicInfoMixin(GenderModelMixin, models.Model):
     name = models.CharField(max_length=256, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     dob = models.DateField(null=True, blank=True, verbose_name="Date Of Birth")
