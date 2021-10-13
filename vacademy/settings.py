@@ -11,11 +11,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import socket
 from os.path import abspath, dirname, join
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+ROOT_DIR = BASE_DIR.parent
 
 
 def root(*dirs):
@@ -31,6 +34,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+DEBUG_TOOLBAR = os.environ.get("DEBUG_TOOLBAR", default=False)
 
 ALLOWED_HOSTS = []
 
@@ -50,7 +55,14 @@ INSTALLED_APPS = [
     "rest_framework"
 ]
 
-MIDDLEWARE = [
+if DEBUG and DEBUG_TOOLBAR:
+    INSTALLED_APPS += ["debug_toolbar"]
+    MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"]
+else:
+    MIDDLEWARE = []
+
+
+MIDDLEWARE += [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -140,7 +152,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # MEDIA_ROOT = root("media")
 # STATIC_ROOT = root("static_root")
 # STATICFILES_DIRS = [root("static")]
-
+# media
+MEDIA_URL = "/media/"
+MEDIA_DIR = ROOT_DIR / "media"
+MEDIA_ROOT = MEDIA_DIR
 
 # Logging
 LOGGING = {
@@ -161,3 +176,12 @@ LOGGING = {
 }
 
 QUIZ_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+
+
+DEBUG_TOOLBAR_CONFIG = {
+    "JQUERY_URL": "",
+}
+INTERNAL_IPS = [
+    "127.0.0.1",
+    socket.gethostbyname(socket.gethostname())[:-1] + "1",  # machine ip
+]
