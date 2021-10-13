@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     "apps.core",
     # third party
     "widget_tweaks",
-    "rest_framework"
+    "rest_framework",
 ]
 
 if DEBUG and DEBUG_TOOLBAR:
