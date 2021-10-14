@@ -5,6 +5,8 @@ from .db import (
     InfoModelMixin,
     TimeStampModelMixin,
     UpdatedModelMixin,
+    SlugModelMixin,
+    IsActiveModelMixin,
 )
 from .patterns import (
     BasePatternMixin,
@@ -26,4 +28,6 @@ __all__ = [
     "CreatedModelMixin",
     "UpdatedModelMixin",
     "BasicInfoMixin",
+    "SlugModelMixin",
+    "IsActiveModelMixin",
 ]

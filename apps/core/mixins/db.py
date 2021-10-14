@@ -32,12 +32,22 @@ class GenderModelMixin(models.Model):
         return self.gender == self.Gender.NOT_SPECIFIED
 
 
+class SlugModelMixin(models.Model):
+    slug = models.SlugField(max_length=300, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+
 class InfoModelMixin(models.Model):
     title = models.CharField(max_length=256, blank=True, null=True)
     description = models.CharField(max_length=256, blank=True, null=True)
 
     class Meta:
         abstract = True
+
+    def __str__(self):
+        return self.title
 
 
 class BasicInfoMixin(GenderModelMixin, models.Model):
@@ -71,6 +81,13 @@ class TimeStampModelMixin(UpdatedModelMixin, CreatedModelMixin):
     """
     Using create & updated fields
     """
+
+
+class IsActiveModelMixin(models.Model):
+    is_active = models.BooleanField(default=False, verbose_name="Is Available")
+
+    class Meta:
+        abstract = True
 
 
 class NationalIDField(models.CharField):

@@ -14,6 +14,8 @@ from apps.core.models import (
     TechLead,
     MedicalItem,
     MedicalItemExport,
+    Product,
+    Group,
 )
 
 
@@ -95,3 +97,19 @@ class MedicalItemModelAdmin(admin.ModelAdmin):
 @admin.register(MedicalItemExport)
 class MedicalItemExportModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "country")
+
+
+@admin.register(Group)
+class GroupModelAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "title",
+        "created",
+    )
+    readonly_fields = ("slug", )
+
+
+@admin.register(Product)
+class ProductModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "created")
+    readonly_fields = ("slug",)

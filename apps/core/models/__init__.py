@@ -1,6 +1,17 @@
-from .book import ISBN, Author, BasicProfile, Book, Developer, Mobile, TechLead, MedicalItem, MedicalItemExport
+from .book import (
+    ISBN,
+    Author,
+    BasicProfile,
+    Book,
+    Developer,
+    Mobile,
+    TechLead,
+    MedicalItem,
+    MedicalItemExport,
+)
 from .quiz import Category, Quizzes
 from .student import Student, Teacher
+from .item import Group, Product
 from .utils import dictfetchall, namedtuplefetchall
 
 __all__ = [
@@ -19,4 +30,6 @@ __all__ = [
     "Mobile",
     "MedicalItem",
     "MedicalItemExport",
+    "Group",
+    "Product",
 ]
