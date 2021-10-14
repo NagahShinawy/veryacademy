@@ -7,6 +7,7 @@ from apps.core.mixins import (
     UpdatedModelMixin,
     IsActiveModelMixin,
 )
+from apps.core.managers import ProductManager
 
 
 class Group(
@@ -36,6 +37,8 @@ class Product(
         null=True,
         blank=True,
     )
+
+    objects = ProductManager()
 
     class Meta:
         verbose_name_plural = "Store Products"
