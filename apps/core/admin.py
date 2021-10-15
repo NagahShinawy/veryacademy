@@ -123,6 +123,7 @@ class AccountModelAdmin(admin.ModelAdmin):
 
     def __init__(self, model, admin_site):
         # reordering model admin fields
+        # source : https://stackoverflow.com/questions/2753764/reordering-fields-in-django-model/5231587
         self.fields = [
             "username",
             "first_name",
@@ -131,5 +132,4 @@ class AccountModelAdmin(admin.ModelAdmin):
             "gender",
             "status",
         ]
-        # source : https://stackoverflow.com/questions/2753764/reordering-fields-in-django-model/5231587
         super().__init__(model, admin_site)
