@@ -2,8 +2,9 @@ from django.db import models
 
 
 class Gender(models.TextChoices):
-    MALE = ("male", "Male")
-    FEMALE = ("female", "Female")
+    MALE = ("m", "Male")
+    FEMALE = ("f", "Female")
+    NOT_SPECIFIED = ("n", "Not Specified")
 
 
 class MaritalStatus(models.TextChoices):

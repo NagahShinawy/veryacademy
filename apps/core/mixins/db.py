@@ -1,14 +1,10 @@
 from django.db import models
 
 from apps.core.validators import national_id_validator
+from apps.core.choices import MaritalStatus, Gender
 
 
 class GenderModelMixin(models.Model):
-    class Gender(models.TextChoices):
-        MALE = ("m", "Male")
-        FEMALE = ("f", "Female")
-        NOT_SPECIFIED = ("n", "Not Specified")
-
     gender = models.CharField(
         max_length=1,
         default=Gender.NOT_SPECIFIED,
@@ -21,15 +17,15 @@ class GenderModelMixin(models.Model):
 
     @property
     def is_male(self):
-        return self.gender == self.Gender.MALE
+        return self.gender == Gender.MALE
 
     @property
     def is_female(self):
-        return self.gender == self.Gender.FEMALE
+        return self.gender == Gender.FEMALE
 
     @property
     def is_not_specified(self):
-        return self.gender == self.Gender.NOT_SPECIFIED
+        return self.gender == Gender.NOT_SPECIFIED
 
 
 class SlugModelMixin(models.Model):
@@ -85,6 +81,13 @@ class TimeStampModelMixin(UpdatedModelMixin, CreatedModelMixin):
 
 class IsActiveModelMixin(models.Model):
     is_active = models.BooleanField(default=False, verbose_name="Is Available")
+
+    class Meta:
+        abstract = True
+
+
+class MaritalStatusModelMixin(models.Model):
+    status = models.CharField(max_length=10, choices=MaritalStatus.choices)
 
     class Meta:
         abstract = True

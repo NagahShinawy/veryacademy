@@ -5,7 +5,7 @@ from django.utils import timezone
 from apps.core.choices import ExperienceLevel, Gender, MaritalStatus
 from apps.core.fields import AgeField, ArabicNameField, EnglishNameField
 from apps.core.managers import StudentManager, TeacherManager
-from apps.core.mixins import GenderModelMixin
+from apps.core.mixins import GenderModelMixin, MaritalStatusModelMixin
 
 
 class Teacher(GenderModelMixin, models.Model):
@@ -65,5 +65,7 @@ class BaseProfile(User):
         abstract = True
 
 
-class Account(GenderModelMixin, BaseProfile):
-    status = models.CharField(max_length=10, choices=MaritalStatus.choices)
+class Account(MaritalStatusModelMixin, GenderModelMixin, BaseProfile):
+    """
+    user accounts
+    """
