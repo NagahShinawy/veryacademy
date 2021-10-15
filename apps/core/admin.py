@@ -118,7 +118,7 @@ class ProductModelAdmin(admin.ModelAdmin):
 
 @admin.register(Account)
 class AccountModelAdmin(admin.ModelAdmin):
-    list_display = ("id", "username", "gender", "status")
+    list_display = ("id", "username", "gender", "status", "created_at")
     list_editable = ("status",)
 
     def __init__(self, model, admin_site):

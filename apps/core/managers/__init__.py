@@ -4,4 +4,10 @@ from .teacher import TeacherManager
 from .product import ProductManager
 
 
-__all__ = ["StudentManager", "TeacherManager", "BookManager", "MedicalItemManager", "ProductManager"]
+__all__ = [
+    "StudentManager",
+    "TeacherManager",
+    "BookManager",
+    "MedicalItemManager",
+    "ProductManager",
+]

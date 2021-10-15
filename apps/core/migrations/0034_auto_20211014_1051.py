@@ -6,18 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0033_auto_20211014_1032'),
+        ("core", "0033_auto_20211014_1032"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='IsActiveModelMixin',
+            name="IsActiveModelMixin",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_active', models.BooleanField(default=False, verbose_name='Is Available')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "is_active",
+                    models.BooleanField(default=False, verbose_name="Is Available"),
+                ),
             ],
         ),
-        migrations.DeleteModel(
-            name='SlugModelMixin',
-        ),
+        migrations.DeleteModel(name="SlugModelMixin",),
     ]

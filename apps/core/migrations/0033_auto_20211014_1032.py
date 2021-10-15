@@ -6,19 +6,26 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0032_auto_20211009_2233'),
+        ("core", "0032_auto_20211009_2233"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SlugModelMixin',
+            name="SlugModelMixin",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('slug', models.SlugField(blank=True, max_length=300, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("slug", models.SlugField(blank=True, max_length=300, null=True)),
             ],
         ),
         migrations.AlterModelOptions(
-            name='medicalitemexport',
-            options={'ordering': ['id']},
+            name="medicalitemexport", options={"ordering": ["id"]},
         ),
     ]

@@ -6,11 +6,9 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0029_iphone_mobile'),
+        ("core", "0029_iphone_mobile"),
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='Iphone',
-        ),
+        migrations.DeleteModel(name="Iphone",),
     ]

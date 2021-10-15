@@ -1,5 +1,4 @@
 from django.db import models
-
 from apps.core.validators import national_id_validator
 from apps.core.choices import MaritalStatus, Gender
 

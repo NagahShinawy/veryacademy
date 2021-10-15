@@ -6,22 +6,15 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0031_medicalitem_medicalitemproxy'),
+        ("core", "0031_medicalitem_medicalitemproxy"),
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='MedicalItemProxy',
-        ),
+        migrations.DeleteModel(name="MedicalItemProxy",),
         migrations.CreateModel(
-            name='MedicalItemExport',
-            fields=[
-            ],
-            options={
-                'proxy': True,
-                'indexes': [],
-                'constraints': [],
-            },
-            bases=('core.medicalitem',),
+            name="MedicalItemExport",
+            fields=[],
+            options={"proxy": True, "indexes": [], "constraints": [],},
+            bases=("core.medicalitem",),
         ),
     ]

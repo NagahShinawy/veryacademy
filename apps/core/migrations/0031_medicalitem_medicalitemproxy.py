@@ -6,31 +6,32 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0030_delete_iphone'),
+        ("core", "0030_delete_iphone"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='MedicalItem',
+            name="MedicalItem",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=256)),
-                ('is_danger_for_pregnant', models.BooleanField(default=False)),
-                ('country', models.CharField(max_length=256)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=256)),
+                ("is_danger_for_pregnant", models.BooleanField(default=False)),
+                ("country", models.CharField(max_length=256)),
             ],
-            options={
-                'verbose_name': 'Medical Item',
-            },
+            options={"verbose_name": "Medical Item",},
         ),
         migrations.CreateModel(
-            name='MedicalItemProxy',
-            fields=[
-            ],
-            options={
-                'proxy': True,
-                'indexes': [],
-                'constraints': [],
-            },
-            bases=('core.medicalitem',),
+            name="MedicalItemProxy",
+            fields=[],
+            options={"proxy": True, "indexes": [], "constraints": [],},
+            bases=("core.medicalitem",),
         ),
     ]

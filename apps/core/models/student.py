@@ -1,11 +1,18 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
-from django.utils import timezone
-
-from apps.core.choices import ExperienceLevel, Gender, MaritalStatus
-from apps.core.fields import AgeField, ArabicNameField, EnglishNameField
+from apps.core.choices import ExperienceLevel, Gender
+from apps.core.fields import (
+    AgeField,
+    ArabicNameField,
+    EnglishNameField,
+)
 from apps.core.managers import StudentManager, TeacherManager
-from apps.core.mixins import GenderModelMixin, MaritalStatusModelMixin
+from apps.core.mixins import (
+    GenderModelMixin,
+    MaritalStatusModelMixin,
+    CreatedModelMixin,
+)
 
 
 class Teacher(GenderModelMixin, models.Model):
@@ -65,7 +72,12 @@ class BaseProfile(User):
         abstract = True
 
 
-class Account(MaritalStatusModelMixin, GenderModelMixin, BaseProfile):
+class Account(
+    MaritalStatusModelMixin, CreatedModelMixin, GenderModelMixin, BaseProfile
+):
     """
     user accounts
     """
+
+    def created_at(self):
+        return self.created.strftime(settings.ACCOUNT_DATETIME_FORMAT)
