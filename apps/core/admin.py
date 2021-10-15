@@ -16,6 +16,7 @@ from apps.core.models import (
     MedicalItemExport,
     Product,
     Group,
+    Account,
 )
 
 
@@ -106,10 +107,29 @@ class GroupModelAdmin(admin.ModelAdmin):
         "title",
         "created",
     )
-    readonly_fields = ("slug", )
+    readonly_fields = ("slug",)
 
 
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "created")
     readonly_fields = ("slug",)
+
+
+@admin.register(Account)
+class AccountModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "username", "gender", "status")
+    list_editable = ("status",)
+
+    def __init__(self, model, admin_site):
+        # reordering model admin fields
+        self.fields = [
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "gender",
+            "status",
+        ]
+        # source : https://stackoverflow.com/questions/2753764/reordering-fields-in-django-model/5231587
+        super().__init__(model, admin_site)

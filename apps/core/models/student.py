@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils import timezone
 
-from apps.core.choices import ExperienceLevel, Gender
+from apps.core.choices import ExperienceLevel, Gender, MaritalStatus
 from apps.core.fields import AgeField, ArabicNameField, EnglishNameField
 from apps.core.managers import StudentManager, TeacherManager
 from apps.core.mixins import GenderModelMixin
@@ -57,3 +58,12 @@ class Student(models.Model):
     #         - self.dob.year
     #         - ((now.month, now.day) < (self.dob.month, self.dob.day))
     #     )
+
+
+class BaseProfile(User):
+    class Meta:
+        abstract = True
+
+
+class Account(GenderModelMixin, BaseProfile):
+    status = models.CharField(max_length=10, choices=MaritalStatus.choices)

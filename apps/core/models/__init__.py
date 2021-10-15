@@ -10,7 +10,7 @@ from .book import (
     MedicalItemExport,
 )
 from .quiz import Category, Quizzes
-from .student import Student, Teacher
+from .student import Student, Teacher, Account
 from .item import Group, Product
 from .utils import dictfetchall, namedtuplefetchall
 
@@ -32,4 +32,5 @@ __all__ = [
     "MedicalItemExport",
     "Group",
     "Product",
+    "Account",
 ]
