@@ -112,8 +112,9 @@ class GroupModelAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "created")
-    readonly_fields = ("slug",)
+    list_display = ("id", "title", "created", "price")
+    readonly_fields = ("slug", )
+    list_editable = ("price", )
 
 
 @admin.register(Account)

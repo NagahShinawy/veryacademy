@@ -8,6 +8,7 @@ from .db import (
     SlugModelMixin,
     IsActiveModelMixin,
     MaritalStatusModelMixin,
+    PriceModelMixin,
 )
 from .patterns import (
     BasePatternMixin,
@@ -32,4 +33,5 @@ __all__ = [
     "SlugModelMixin",
     "IsActiveModelMixin",
     "MaritalStatusModelMixin",
+    "PriceModelMixin",
 ]

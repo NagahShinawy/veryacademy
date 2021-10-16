@@ -6,7 +6,9 @@ from apps.core.mixins import (
     CreatedModelMixin,
     UpdatedModelMixin,
     IsActiveModelMixin,
+    PriceModelMixin,
 )
+
 from apps.core.managers import ProductManager
 
 
@@ -27,6 +29,7 @@ class Product(
     UpdatedModelMixin,
     SlugModelMixin,
     IsActiveModelMixin,
+    PriceModelMixin,
     models.Model,
 ):
     seller = models.ForeignKey(User, on_delete=models.PROTECT, related_name="products")
