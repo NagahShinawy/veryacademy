@@ -10,6 +10,7 @@ from apps.core.mixins import (
 )
 
 from apps.core.managers import ProductManager
+from apps.core.constants import NULL_BLANK
 
 
 class Group(

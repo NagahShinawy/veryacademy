@@ -12,6 +12,7 @@ from .book import (
 from .quiz import Category, Quizzes
 from .student import Student, Teacher, Account, Staff, TLead
 from .item import Group, Product, NoteBook
+from .server import Server, Ubuntu, Centos
 from .utils import dictfetchall, namedtuplefetchall
 
 __all__ = [
@@ -34,4 +35,7 @@ __all__ = [
     "Product",
     "Account",
     "NoteBook",
+    "Server",
+    "Ubuntu",
+    "Centos",
 ]

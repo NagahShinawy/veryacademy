@@ -19,6 +19,9 @@ from apps.core.models import (
     Account,
     NoteBook,
     TLead,
+    Server,
+    Ubuntu,
+    Centos,
 )
 
 
@@ -68,7 +71,11 @@ class CategoryModelAdmin(admin.ModelAdmin):
 @admin.register(Author)
 class AuthorModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "description", "gender", "created", "updated")
-    list_editable = list_display[1:-2]
+    list_editable = (
+        "title",
+        "description",
+        "gender",
+    )
 
 
 @admin.register(BasicProfile)
@@ -154,3 +161,23 @@ class TLeadModelAdmin(admin.ModelAdmin):
     )
 
     list_editable = ("team_numbers",)
+
+
+@admin.register(Ubuntu)
+class UbuntuModelAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "hardware",
+        "os",
+        "version"
+    )
+
+
+@admin.register(Centos)
+class CentosModelAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "hardware",
+        "os",
+        "release",
+    )

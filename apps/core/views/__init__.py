@@ -28,6 +28,7 @@ from .student import (
 )
 
 from .item import ProductListView, NoteBookListView
+from .server import ServerListView
 
 
 __all__ = [
@@ -54,4 +55,5 @@ __all__ = [
     "RetrieveCategoryAPIView",
     "ProductListView",
     "NoteBookListView",
+    "ServerListView",
 ]
