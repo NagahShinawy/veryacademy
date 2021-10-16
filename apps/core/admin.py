@@ -17,6 +17,7 @@ from apps.core.models import (
     Product,
     Group,
     Account,
+    NoteBook,
 )
 
 
@@ -134,3 +135,8 @@ class AccountModelAdmin(admin.ModelAdmin):
             "status",
         ]
         super().__init__(model, admin_site)
+
+
+@admin.register(NoteBook)
+class NoteBookModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "price", "pages")

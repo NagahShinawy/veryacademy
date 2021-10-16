@@ -11,7 +11,7 @@ from .book import (
 )
 from .quiz import Category, Quizzes
 from .student import Student, Teacher, Account
-from .item import Group, Product
+from .item import Group, Product, NoteBook
 from .utils import dictfetchall, namedtuplefetchall
 
 __all__ = [
@@ -33,4 +33,5 @@ __all__ = [
     "Group",
     "Product",
     "Account",
+    "NoteBook",
 ]

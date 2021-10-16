@@ -46,3 +46,11 @@ class Product(
     class Meta:
         verbose_name_plural = "Store Products"
         verbose_name = "Single Product"
+
+
+# create db model with 2 fields [ product_ptr_id, pages]
+# product_ptr_id: FK
+# pages: new field
+
+class NoteBook(Product):
+    pages = models.PositiveSmallIntegerField()
