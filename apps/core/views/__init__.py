@@ -54,5 +54,4 @@ __all__ = [
     "RetrieveCategoryAPIView",
     "ProductListView",
     "NoteBookListView",
-
 ]

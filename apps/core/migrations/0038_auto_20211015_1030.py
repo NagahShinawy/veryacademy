@@ -7,19 +7,27 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0037_auto_20211015_0901'),
+        ("core", "0037_auto_20211015_0901"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='account',
-            name='created',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now, verbose_name='created datetime'),
+            model_name="account",
+            name="created",
+            field=models.DateTimeField(
+                auto_now_add=True,
+                default=django.utils.timezone.now,
+                verbose_name="created datetime",
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='student',
-            name='gender',
-            field=models.CharField(choices=[('m', 'Male'), ('f', 'Female'), ('n', 'Not Specified')], default='m', max_length=10),
+            model_name="student",
+            name="gender",
+            field=models.CharField(
+                choices=[("m", "Male"), ("f", "Female"), ("n", "Not Specified")],
+                default="m",
+                max_length=10,
+            ),
         ),
     ]
