@@ -27,6 +27,9 @@ from .student import (
     union,
 )
 
+from .item import ProductListView, NoteBookListView
+
+
 __all__ = [
     "students_list",
     "students_list_",
@@ -49,4 +52,7 @@ __all__ = [
     "CategoryAPIView",
     "RetrieveQuizAPIView",
     "RetrieveCategoryAPIView",
+    "ProductListView",
+    "NoteBookListView",
+
 ]
