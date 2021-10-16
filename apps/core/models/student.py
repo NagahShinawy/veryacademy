@@ -12,7 +12,10 @@ from apps.core.mixins import (
     GenderModelMixin,
     MaritalStatusModelMixin,
     CreatedModelMixin,
+    BasicInfoMixin,
 )
+
+from apps.core.constants import DECIMAL_OPTIONS
 
 
 class Teacher(GenderModelMixin, models.Model):
@@ -81,3 +84,14 @@ class Account(
 
     def created_at(self):
         return self.created.strftime(settings.ACCOUNT_DATETIME_FORMAT)
+
+
+class Staff(BasicInfoMixin, models.Model):
+    salary = models.DecimalField(**DECIMAL_OPTIONS)
+
+    class Meta:
+        abstract = True
+
+
+class TLead(Staff):
+    team_numbers = models.PositiveSmallIntegerField()

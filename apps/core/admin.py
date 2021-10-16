@@ -18,6 +18,7 @@ from apps.core.models import (
     Group,
     Account,
     NoteBook,
+    TLead,
 )
 
 
@@ -114,7 +115,7 @@ class GroupModelAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "created", "price", "is_active")
-    readonly_fields = ("slug", )
+    readonly_fields = ("slug",)
     list_editable = ("price", "is_active")
 
 
@@ -140,3 +141,16 @@ class AccountModelAdmin(admin.ModelAdmin):
 @admin.register(NoteBook)
 class NoteBookModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "price", "pages")
+
+
+@admin.register(TLead)
+class TLeadModelAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "name",
+        "email",
+        "dob",
+        "team_numbers",
+    )
+
+    list_editable = ("team_numbers",)

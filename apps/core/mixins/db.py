@@ -1,7 +1,7 @@
 from django.db import models
 from apps.core.validators import national_id_validator
 from apps.core.choices import MaritalStatus, Gender
-from apps.core.constants import PRICE_DECIMAL_OPTIONS, NULL_BLANK
+from apps.core.constants import DECIMAL_OPTIONS, NULL_BLANK
 
 
 class GenderModelMixin(models.Model):
@@ -94,7 +94,7 @@ class MaritalStatusModelMixin(models.Model):
 
 
 class PriceModelMixin(models.Model):
-    price = models.DecimalField(**PRICE_DECIMAL_OPTIONS, **NULL_BLANK)
+    price = models.DecimalField(**DECIMAL_OPTIONS, **NULL_BLANK)
 
     class Meta:
         abstract = True

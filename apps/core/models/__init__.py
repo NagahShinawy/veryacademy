@@ -10,7 +10,7 @@ from .book import (
     MedicalItemExport,
 )
 from .quiz import Category, Quizzes
-from .student import Student, Teacher, Account
+from .student import Student, Teacher, Account, Staff, TLead
 from .item import Group, Product, NoteBook
 from .utils import dictfetchall, namedtuplefetchall
 
