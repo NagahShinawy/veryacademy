@@ -46,11 +46,12 @@ class Product(
     class Meta:
         verbose_name_plural = "Store Products"
         verbose_name = "Single Product"
+        ordering = ["-created"]
 
 
 # create db model with 2 fields [ product_ptr_id, pages]
 # product_ptr_id: FK
 # pages: new field
-
+# كل نوت هو برودكت بس مش شرط كل برودكت يبقى نوت
 class NoteBook(Product):
     pages = models.PositiveSmallIntegerField()
