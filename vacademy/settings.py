@@ -87,6 +87,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+
+                # local
+                "apps.core.mixins.context_processors.copy_rights",
             ],
         },
     },
