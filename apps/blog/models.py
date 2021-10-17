@@ -8,6 +8,7 @@ from apps.core.mixins import (
     InfoModelMixin,
 )
 from .choices import Status
+from .managers import PostManager
 
 
 class Post(InfoModelMixin, CreatedModelMixin, UpdatedModelMixin, models.Model):
@@ -20,7 +21,8 @@ class Post(InfoModelMixin, CreatedModelMixin, UpdatedModelMixin, models.Model):
     status = models.CharField(
         max_length=10, choices=Status.choices, default=Status.DRAFT
     )
-    tags = models.CharField
+
+    objects = PostManager()
 
     class Meta:
         ordering = ("id",)
