@@ -122,3 +122,8 @@ TechLead is Developer [ create TechLead obj save to Developer model but obj will
 - save the same data with means if you update from class , the same obj will be updated in the other class
 =====================
 3- Proxy model
+
+
+=======================================================================================================================
+# source : https://django-polymorphic.readthedocs.io/en/stable/quickstart.html
+django-polymorphic

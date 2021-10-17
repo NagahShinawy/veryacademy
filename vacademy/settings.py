@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "apps.core",
+    "apps.blog",
+
     # third party
     "widget_tweaks",
     "rest_framework",
