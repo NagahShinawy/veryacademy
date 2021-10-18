@@ -13,6 +13,7 @@ urlpatterns = [
     path("", include("apps.core.urls.server", namespace="server")),
     path("books/", include("apps.core.urls.book", namespace="book")),
     path("api/v1/", include("apps.core.urls.quiz", namespace="quiz")),
+    path("api/v1/", include("apps.lne.api.urls", namespace="quiz")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # debug toolbar
