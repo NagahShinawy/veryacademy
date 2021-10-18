@@ -35,4 +35,4 @@ class ContactUs(models.Model):
         max_length=30, choices=Service.choices, verbose_name="Service"
     )
 
-    description = models.TextField(max_length=300, default="")
+    description = models.TextField(max_length=300)

@@ -49,13 +49,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     # local
     "apps.core",
     "apps.blog",
     "apps.akhdar",
     "apps.lne",
-
     # third party
     "widget_tweaks",
     "rest_framework",
@@ -92,7 +90,6 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-
                 # local
                 "apps.core.mixins.context_processors.copy_rights",
             ],

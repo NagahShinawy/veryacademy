@@ -7,17 +7,43 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Publisher',
+            name="Publisher",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(help_text='The name of the Publisher.', max_length=50, verbose_name='Name')),
-                ('website', models.URLField(help_text="The Publisher's website.", verbose_name='Website')),
-                ('email', models.EmailField(help_text="The Publisher's email address.", max_length=254, verbose_name='Email')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        help_text="The name of the Publisher.",
+                        max_length=50,
+                        verbose_name="Name",
+                    ),
+                ),
+                (
+                    "website",
+                    models.URLField(
+                        help_text="The Publisher's website.", verbose_name="Website"
+                    ),
+                ),
+                (
+                    "email",
+                    models.EmailField(
+                        help_text="The Publisher's email address.",
+                        max_length=254,
+                        verbose_name="Email",
+                    ),
+                ),
             ],
         ),
     ]

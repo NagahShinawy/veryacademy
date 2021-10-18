@@ -1,8 +1,6 @@
 from django.urls import path
 
-from apps.core.views import (
-   ServerListView
-)
+from apps.core.views import ServerListView
 
 app_name = "server"
 

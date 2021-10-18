@@ -7,22 +7,29 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='HearingTestData',
+            name="HearingTestData",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('left_ear_freq_500', models.NullBooleanField()),
-                ('left_ear_freq_1000', models.NullBooleanField()),
-                ('left_ear_freq_2000', models.NullBooleanField()),
-                ('left_ear_freq_4000', models.NullBooleanField()),
-                ('right_ear_freq_500', models.NullBooleanField()),
-                ('right_ear_freq_1000', models.NullBooleanField()),
-                ('right_ear_freq_2000', models.NullBooleanField()),
-                ('right_ear_freq_4000', models.NullBooleanField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("left_ear_freq_500", models.NullBooleanField()),
+                ("left_ear_freq_1000", models.NullBooleanField()),
+                ("left_ear_freq_2000", models.NullBooleanField()),
+                ("left_ear_freq_4000", models.NullBooleanField()),
+                ("right_ear_freq_500", models.NullBooleanField()),
+                ("right_ear_freq_1000", models.NullBooleanField()),
+                ("right_ear_freq_2000", models.NullBooleanField()),
+                ("right_ear_freq_4000", models.NullBooleanField()),
             ],
         ),
     ]

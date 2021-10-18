@@ -7,27 +7,51 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('lne', '0002_auto_20211018_1114'),
+        ("lne", "0002_auto_20211018_1114"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Member',
+            name="Member",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('gender', models.CharField(choices=[('m', 'Male'), ('f', 'Female'), ('n', 'Not Specified')], default='n', max_length=1, verbose_name='Gender')),
-                ('name', models.CharField(blank=True, max_length=256, null=True)),
-                ('email', models.EmailField(blank=True, max_length=254, null=True)),
-                ('dob', models.DateField(blank=True, null=True, verbose_name='Date Of Birth')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "gender",
+                    models.CharField(
+                        choices=[
+                            ("m", "Male"),
+                            ("f", "Female"),
+                            ("n", "Not Specified"),
+                        ],
+                        default="n",
+                        max_length=1,
+                        verbose_name="Gender",
+                    ),
+                ),
+                ("name", models.CharField(blank=True, max_length=256, null=True)),
+                ("email", models.EmailField(blank=True, max_length=254, null=True)),
+                (
+                    "dob",
+                    models.DateField(
+                        blank=True, null=True, verbose_name="Date Of Birth"
+                    ),
+                ),
             ],
-            options={
-                'ordering': ['id'],
-                'abstract': False,
-            },
+            options={"ordering": ["id"], "abstract": False,},
         ),
         migrations.AddField(
-            model_name='hearingtestdata',
-            name='member',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='lne.member'),
+            model_name="hearingtestdata",
+            name="member",
+            field=models.ForeignKey(
+                null=True, on_delete=django.db.models.deletion.SET_NULL, to="lne.member"
+            ),
         ),
     ]

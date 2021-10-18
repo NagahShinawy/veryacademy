@@ -6,50 +6,40 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('lne', '0001_initial'),
+        ("lne", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='hearingtestdata',
-            name='left_ear_freq_1000',
+            model_name="hearingtestdata", name="left_ear_freq_1000",
         ),
         migrations.RemoveField(
-            model_name='hearingtestdata',
-            name='left_ear_freq_2000',
+            model_name="hearingtestdata", name="left_ear_freq_2000",
         ),
         migrations.RemoveField(
-            model_name='hearingtestdata',
-            name='left_ear_freq_4000',
+            model_name="hearingtestdata", name="left_ear_freq_4000",
+        ),
+        migrations.RemoveField(model_name="hearingtestdata", name="left_ear_freq_500",),
+        migrations.RemoveField(
+            model_name="hearingtestdata", name="right_ear_freq_1000",
         ),
         migrations.RemoveField(
-            model_name='hearingtestdata',
-            name='left_ear_freq_500',
+            model_name="hearingtestdata", name="right_ear_freq_2000",
         ),
         migrations.RemoveField(
-            model_name='hearingtestdata',
-            name='right_ear_freq_1000',
+            model_name="hearingtestdata", name="right_ear_freq_4000",
         ),
         migrations.RemoveField(
-            model_name='hearingtestdata',
-            name='right_ear_freq_2000',
-        ),
-        migrations.RemoveField(
-            model_name='hearingtestdata',
-            name='right_ear_freq_4000',
-        ),
-        migrations.RemoveField(
-            model_name='hearingtestdata',
-            name='right_ear_freq_500',
+            model_name="hearingtestdata", name="right_ear_freq_500",
         ),
         migrations.AddField(
-            model_name='hearingtestdata',
-            name='left_ear_freq',
+            model_name="hearingtestdata",
+            name="left_ear_freq",
             field=models.BooleanField(null=True),
         ),
         migrations.AddField(
-            model_name='hearingtestdata',
-            name='right_ear_freq',
+            model_name="hearingtestdata",
+            name="right_ear_freq",
             field=models.BooleanField(null=True),
         ),
     ]

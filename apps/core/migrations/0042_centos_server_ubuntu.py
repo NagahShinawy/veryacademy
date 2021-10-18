@@ -6,43 +6,68 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0041_auto_20211016_1201'),
+        ("core", "0041_auto_20211016_1201"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Centos',
+            name="Centos",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('hardware', models.CharField(blank=True, max_length=256, null=True)),
-                ('os', models.CharField(blank=True, max_length=50, null=True)),
-                ('release', models.CharField(choices=[('short', 'Short'), ('long', 'Long')], default='short', max_length=10)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("hardware", models.CharField(blank=True, max_length=256, null=True)),
+                ("os", models.CharField(blank=True, max_length=50, null=True)),
+                (
+                    "release",
+                    models.CharField(
+                        choices=[("short", "Short"), ("long", "Long")],
+                        default="short",
+                        max_length=10,
+                    ),
+                ),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
         migrations.CreateModel(
-            name='Server',
+            name="Server",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('hardware', models.CharField(blank=True, max_length=256, null=True)),
-                ('os', models.CharField(blank=True, max_length=50, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("hardware", models.CharField(blank=True, max_length=256, null=True)),
+                ("os", models.CharField(blank=True, max_length=50, null=True)),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
         migrations.CreateModel(
-            name='Ubuntu',
+            name="Ubuntu",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('hardware', models.CharField(blank=True, max_length=256, null=True)),
-                ('os', models.CharField(blank=True, max_length=50, null=True)),
-                ('version', models.CharField(blank=True, max_length=10, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("hardware", models.CharField(blank=True, max_length=256, null=True)),
+                ("os", models.CharField(blank=True, max_length=50, null=True)),
+                ("version", models.CharField(blank=True, max_length=10, null=True)),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
     ]

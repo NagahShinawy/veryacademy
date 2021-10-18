@@ -7,40 +7,86 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('akhdar', '0001_initial'),
+        ("akhdar", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Contributor',
+            name="Contributor",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(max_length=254, verbose_name='Email')),
-                ('first_names', models.CharField(help_text="The contributor's first name or names.", max_length=50)),
-                ('last_names', models.CharField(help_text="The contributor's last name or names.", max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("email", models.EmailField(max_length=254, verbose_name="Email")),
+                (
+                    "first_names",
+                    models.CharField(
+                        help_text="The contributor's first name or names.",
+                        max_length=50,
+                    ),
+                ),
+                (
+                    "last_names",
+                    models.CharField(
+                        help_text="The contributor's last name or names.", max_length=50
+                    ),
+                ),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
         migrations.AlterField(
-            model_name='publisher',
-            name='email',
-            field=models.EmailField(max_length=254, verbose_name='Email'),
+            model_name="publisher",
+            name="email",
+            field=models.EmailField(max_length=254, verbose_name="Email"),
         ),
         migrations.CreateModel(
-            name='Book',
+            name="Book",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(blank=True, max_length=256, null=True)),
-                ('description', models.CharField(blank=True, max_length=256, null=True)),
-                ('created', models.DateTimeField(auto_now_add=True, verbose_name='created datetime')),
-                ('publication_date', models.DateField(verbose_name='Date the book was published.')),
-                ('isbn', models.CharField(max_length=20, verbose_name='ISBN number of the book.')),
-                ('publisher', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='books', to='akhdar.publisher')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(blank=True, max_length=256, null=True)),
+                (
+                    "description",
+                    models.CharField(blank=True, max_length=256, null=True),
+                ),
+                (
+                    "created",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="created datetime"
+                    ),
+                ),
+                (
+                    "publication_date",
+                    models.DateField(verbose_name="Date the book was published."),
+                ),
+                (
+                    "isbn",
+                    models.CharField(
+                        max_length=20, verbose_name="ISBN number of the book."
+                    ),
+                ),
+                (
+                    "publisher",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="books",
+                        to="akhdar.publisher",
+                    ),
+                ),
             ],
-            options={
-                'verbose_name': 'Akhdar Book',
-            },
+            options={"verbose_name": "Akhdar Book",},
         ),
     ]

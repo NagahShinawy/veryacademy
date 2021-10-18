@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class AkhdarConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.akhdar'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "apps.akhdar"

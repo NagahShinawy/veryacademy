@@ -165,12 +165,7 @@ class TLeadModelAdmin(admin.ModelAdmin):
 
 @admin.register(Ubuntu)
 class UbuntuModelAdmin(admin.ModelAdmin):
-    list_display = (
-        "id",
-        "hardware",
-        "os",
-        "version"
-    )
+    list_display = ("id", "hardware", "os", "version")
 
 
 @admin.register(Centos)

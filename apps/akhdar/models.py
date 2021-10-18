@@ -18,7 +18,9 @@ class Book(InfoModelMixin, CreatedModelMixin, models.Model):
 
     publication_date = models.DateField(verbose_name="Date the book was published.")
     isbn = models.CharField(max_length=20, verbose_name="ISBN number of the book.")
-    publisher = models.ForeignKey(to=Publisher, on_delete=models.PROTECT, related_name="books")
+    publisher = models.ForeignKey(
+        to=Publisher, on_delete=models.PROTECT, related_name="books"
+    )
 
     class Meta:
         verbose_name = "Akhdar Book"
