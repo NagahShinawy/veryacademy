@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     # third party
     "widget_tweaks",
     "rest_framework",
+    "phonenumber_field",
 ]
 
 if DEBUG and DEBUG_TOOLBAR:
