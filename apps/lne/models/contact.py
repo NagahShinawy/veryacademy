@@ -22,9 +22,17 @@ class ContactUs(models.Model):
         return f"{self.name} - {self.nationalid}"
 
     name = models.CharField(max_length=256, verbose_name="Name")
-    nationalid = models.CharField(max_length=10)
-    phone = models.CharField(max_length=13)
+    nationalid = models.CharField(max_length=10, verbose_name="National ID")
+    phone = models.CharField(max_length=13, verbose_name="Mobile Number")
     reason = models.CharField(
-        max_length=20, choices=Reason.choices, null=True, blank=True
+        max_length=20,
+        choices=Reason.choices,
+        null=True,
+        blank=True,
+        verbose_name="Reason",
     )
-    service = models.CharField(max_length=30, choices=Service.choices)
+    service = models.CharField(
+        max_length=30, choices=Service.choices, verbose_name="Service"
+    )
+
+    description = models.TextField(max_length=300, default="")
