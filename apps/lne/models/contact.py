@@ -23,7 +23,7 @@ class ContactUs(models.Model):
 
     name = models.CharField(max_length=256, verbose_name="Name")
     nationalid = models.CharField(max_length=10)
-    phone = models.CharField(max_length=12)
+    phone = models.CharField(max_length=13)
     reason = models.CharField(
         max_length=20, choices=Reason.choices, null=True, blank=True
     )
