@@ -13,8 +13,10 @@ class ContactModelAdmin(admin.ModelAdmin):
         "name",
         "phone",
         "nationalid",
+        "status"
     )
     list_editable = (
         "name",
         "phone",
+        "status",
     )

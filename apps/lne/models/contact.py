@@ -15,6 +15,10 @@ class ContactUs(models.Model):
         MEDICATION = ("medication", "Medication")
         OTHER = ("other", "Other")
 
+    class Status(models.TextChoices):
+        SINGLE = ("single", "Single")
+        MARRIED = ("married", "Married")
+
     class Meta:
         verbose_name = "Contact"
 
@@ -22,6 +26,9 @@ class ContactUs(models.Model):
         return f"{self.name} - {self.nationalid}"
 
     name = models.CharField(max_length=256, verbose_name="Name")
+    status = models.CharField(
+        max_length=7, choices=Status.choices, verbose_name="Material Status"
+    )
     nationalid = models.CharField(max_length=10, verbose_name="National ID")
     phone = models.CharField(max_length=13, verbose_name="Mobile Number")
     reason = models.CharField(
