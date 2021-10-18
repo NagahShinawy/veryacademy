@@ -100,6 +100,13 @@ class PriceModelMixin(models.Model):
         abstract = True
 
 
+class EmailModelMixin(models.Model):
+    email = models.EmailField(verbose_name="Email")
+
+    class Meta:
+        abstract = True
+
+
 class NationalIDField(models.CharField):
 
     ID_MAX_DIGITS = 14

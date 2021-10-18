@@ -49,8 +49,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # local
     "apps.core",
     "apps.blog",
+    "apps.akhdar",
+    "apps.lne",
 
     # third party
     "widget_tweaks",
