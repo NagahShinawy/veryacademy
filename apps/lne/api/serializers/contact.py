@@ -1,7 +1,9 @@
 from rest_framework import fields
 from phonenumber_field.serializerfields import PhoneNumberField
 from rest_framework import serializers
+from django.conf import settings
 from apps.lne.models import ContactUs
+from apps.lne.errors import NotEgyptPhoneNumber
 
 
 class NationalIDField(fields.RegexField):
@@ -23,3 +25,8 @@ class ContactUsSerializers(serializers.ModelSerializer):
     class Meta:
         model = ContactUs
         fields = "__all__"
+
+    def validate_phone(self, value):
+        if value.country_code != settings.EGYPT_CODE_PREFIX:
+            raise serializers.ValidationError(NotEgyptPhoneNumber.message)
+        return value
