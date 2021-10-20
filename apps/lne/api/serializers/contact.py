@@ -18,15 +18,18 @@ class NationalIDField(fields.RegexField):
         super().__init__(self.NID_REGEX, **kwargs)
 
 
+class CustomPhoneNumberField(PhoneNumberField):
+    def to_internal_value(self, data):
+        phone = super().to_internal_value(data)
+        if phone.country_code != settings.EGYPT_CODE_PREFIX:
+            raise serializers.ValidationError(NotEgyptPhoneNumber.message)
+        return phone
+
+
 class ContactUsSerializers(serializers.ModelSerializer):
     nationalid = NationalIDField()
-    phone = PhoneNumberField()
+    phone = CustomPhoneNumberField()
 
     class Meta:
         model = ContactUs
         fields = "__all__"
-
-    def validate_phone(self, value):
-        if value.country_code != settings.EGYPT_CODE_PREFIX:
-            raise serializers.ValidationError(NotEgyptPhoneNumber.message)
-        return value
