@@ -7,8 +7,6 @@ from django.views.generic import (
     ListView,
     UpdateView,
 )
-
-from apps.core.choices import BookStatus
 from apps.core.models import Book
 
 
@@ -37,7 +35,7 @@ class SingleBookView(DetailView):
 
     def get_object(self, queryset=None):
         book = self.model.objects.get(pk=self.kwargs.get("pk"))
-        if book.status == BookStatus.DRAFT:
+        if not book.is_published:
             raise Http404()
         return book
 

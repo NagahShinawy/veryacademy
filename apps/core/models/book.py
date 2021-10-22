@@ -66,6 +66,10 @@ class Book(models.Model):
     def update_url(self):
         return reverse(self.UPDATE_VIEW_NAME, args=[self.pk])
 
+    @property
+    def is_published(self):
+        return self.status == BookStatus.PUBLISHED
+
     class Meta:
         ordering = ["-published"]
 
