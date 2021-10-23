@@ -8,4 +8,5 @@ app_name = "home"
 
 urlpatterns = [
     path("", NoteIndexView.as_view(), name="notes"),
+    path("books/", NoteIndexView.as_view(), name="notes"),
 ]
