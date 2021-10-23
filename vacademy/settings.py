@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     "apps.blog",
     "apps.akhdar",
     "apps.lne",
+    "apps.home",
+
     # third party
     "widget_tweaks",
     "rest_framework",

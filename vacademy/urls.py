@@ -14,6 +14,7 @@ urlpatterns = [
     path("books/", include("apps.core.urls.book", namespace="book")),
     path("api/v1/", include("apps.core.urls.quiz", namespace="quiz")),
     path("api/v1/", include("apps.lne.api.urls", namespace="lns")),
+    path("notes/", include("apps.home.urls", namespace="home")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # debug toolbar

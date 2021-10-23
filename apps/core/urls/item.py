@@ -9,5 +9,5 @@ app_name = "item"
 
 urlpatterns = [
     path("products/", ProductListView.as_view(), name="products"),
-    path("notes/", NoteBookListView.as_view(), name="notes"),
+    # path("notes/", NoteBookListView.as_view(), name="notes"),
 ]
