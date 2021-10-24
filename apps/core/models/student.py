@@ -95,3 +95,16 @@ class Staff(BasicInfoMixin, models.Model):
 
 class TLead(Staff):
     team_numbers = models.PositiveSmallIntegerField()
+
+
+# django can track db changes using migrations dir
+# migrations: explains what kind of changes at the db need to perform
+# django has migrations for auth system already, you just need to perform it [migrate]
+# django migrations for auth system located in [django/contrib/admin, django/contrib/auth, django/contrib/sessions]
+# you can applying theses changes [migrations] with migrate command
+
+class Player(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.PositiveSmallIntegerField(null=True, blank=True)
+
+
