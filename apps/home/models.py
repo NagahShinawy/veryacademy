@@ -1,3 +1,9 @@
 from django.db import models
+from apps.core.mixins import InfoModelMixin, CreatedModelMixin, UpdatedModelMixin, IsActiveModelMixin
 
-# Create your models here.
+
+class Note(InfoModelMixin, CreatedModelMixin, UpdatedModelMixin, IsActiveModelMixin, models.Model):
+    """
+    
+    """
+
