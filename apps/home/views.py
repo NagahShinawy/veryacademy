@@ -1,5 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class NoteIndexView(TemplateView):
@@ -21,8 +23,19 @@ class NoteIndexView(TemplateView):
         )
         if self.is_user_authenticated:
             data["notes"] = ["django", "html", "css", "js", "react"]
+
+        success_url = reverse_lazy(
+            "books:books_list"
+        )  # map view name to URL route [path]
+        print(success_url)
+
         return data
 
     # just test redirect status code
     # def get(self, request, *args, **kwargs):
     #     return redirect("admin:index")
+
+
+class AuthorizedView(LoginRequiredMixin, TemplateView):
+    template_name = "home/authorized.html"
+    login_url = "/admin/"
