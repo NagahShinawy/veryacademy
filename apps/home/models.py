@@ -4,6 +4,9 @@ from apps.core.mixins import InfoModelMixin, CreatedModelMixin, UpdatedModelMixi
 
 class Note(InfoModelMixin, CreatedModelMixin, UpdatedModelMixin, IsActiveModelMixin, models.Model):
     """
-    
+
     """
+
+    class Meta:
+        ordering = ["id"]
 
