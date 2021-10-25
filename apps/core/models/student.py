@@ -103,8 +103,7 @@ class TLead(Staff):
 # django migrations for auth system located in [django/contrib/admin, django/contrib/auth, django/contrib/sessions]
 # you can applying theses changes [migrations] with migrate command
 
+
 class Player(models.Model):
     name = models.CharField(max_length=100)
     age = models.PositiveSmallIntegerField(null=True, blank=True)
-
-
