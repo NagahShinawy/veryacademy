@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -55,3 +55,9 @@ class NoteDetailsView(DetailView):
     context_object_name = "note"
     template_name = "home/note.html"
 
+
+class CreateNoteView(CreateView):
+    model = Note
+    fields = ["title", "description", "is_active"]
+    template_name = 'home/create_note.html'
+    success_url = reverse_lazy("home:all")
