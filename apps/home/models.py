@@ -6,6 +6,8 @@ from apps.core.mixins import (
     IsActiveModelMixin,
 )
 
+from .managers import NoteManager
+
 
 class Note(
     InfoModelMixin,
@@ -17,6 +19,8 @@ class Note(
     """
 
     """
+
+    objects = NoteManager()
 
     class Meta:
         ordering = ["id"]

@@ -1,7 +1,9 @@
+from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Note
 
 
 class NoteIndexView(TemplateView):
@@ -39,3 +41,12 @@ class NoteIndexView(TemplateView):
 class AuthorizedView(LoginRequiredMixin, TemplateView):
     template_name = "home/authorized.html"
     login_url = "/admin/"
+
+
+class NoteListView(ListView):
+    model = Note
+    template_name = 'home/home.html'
+    context_object_name = 'notes'
+
+    def get_queryset(self):
+        return Note.objects.active()
