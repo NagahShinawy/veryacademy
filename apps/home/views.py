@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -45,8 +45,14 @@ class AuthorizedView(LoginRequiredMixin, TemplateView):
 
 class NoteListView(ListView):
     model = Note
-    template_name = 'home/home.html'
-    context_object_name = 'notes'
+    template_name = "home/home.html"
+    context_object_name = "notes"
 
     def get_queryset(self):
         return Note.objects.active()
+
+
+class NoteDetailsView(DetailView):
+    model = Note
+    context_object_name = "note"
+    template_name = "home/note.html"
