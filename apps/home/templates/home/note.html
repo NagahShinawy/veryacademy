@@ -2,7 +2,9 @@
     {% block title %} Note {{ note }} {% endblock %}
 
    {% block content %}
-         <h1> {{ note.title }} </h1>
-         <p> {{ note.description }}</p>
+        <div class="border round">
+             <h1 class="my-5"> {{ note.title }} </h1>
+            <p> {{ note.description|truncatechars:10 }}</p>
+        </div>
        <a href="{% url 'home:all' %}"><button class="btn btn-primary">Back to notes</button></a>
    {% endblock %}
