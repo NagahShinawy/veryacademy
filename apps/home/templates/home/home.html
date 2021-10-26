@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-       <head>
-              <meta charset="UTF-8">
-              <title>Smart NoteBook</title>
-           <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-       </head>
-       <body>
-              <h2>{{ username|upper }}</h2>
-              <h4>{{ custom_user }}</h4>
-              <ul>
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+            <h2>{{ username|upper }}</h2>
+            <h4>{{ custom_user }}</h4>
+            <ul>
                   {% for note in notes %}
                     <li> {{ note }} </li>
                   {% endfor %}
-              </ul>
-       </body>
-</html>
+            </ul>
+
+{% endblock %}
