@@ -10,6 +10,7 @@ class NoteIndexView(TemplateView):
     # django template language DTL: allow you to use vars, tags and filters at HTML pages
     # source : https://realpython.com/django-templates-tags-filters/#choosing-a-template-language
     template_name = "home/home.html"
+    extra_context = {"username": "John"}
     UNKNOWN_USER = "Unknown"
 
     @property
@@ -56,3 +57,4 @@ class NoteDetailsView(DetailView):
     model = Note
     context_object_name = "note"
     template_name = "home/note.html"
+
