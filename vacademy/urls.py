@@ -6,16 +6,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include("apps.core.urls.student", namespace="student")),
-    path("", include("apps.core.urls.item", namespace="item")),
-    path("", include("apps.core.urls.server", namespace="server")),
-    path("books/", include("apps.core.urls.book", namespace="book")),
-    path("api/v1/", include("apps.core.urls.quiz", namespace="quiz")),
-    path("api/v1/", include("apps.lne.api.urls", namespace="lns")),
-    path("notes/", include("apps.home.urls", namespace="home")),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = (
+    [
+        path("admin/", admin.site.urls),
+        path("", include("apps.core.urls.student", namespace="student")),
+        path("", include("apps.core.urls.item", namespace="item")),
+        path("", include("apps.core.urls.server", namespace="server")),
+        path("books/", include("apps.core.urls.book", namespace="book")),
+        path("api/v1/", include("apps.core.urls.quiz", namespace="quiz")),
+        path("api/v1/", include("apps.lne.api.urls", namespace="lns")),
+        path("notes/", include("apps.home.urls", namespace="home")),
+    ]
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+)
 
 # debug toolbar
 if settings.DEBUG and settings.DEBUG_TOOLBAR:

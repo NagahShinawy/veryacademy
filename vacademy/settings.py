@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     "apps.akhdar",
     "apps.lne",
     "apps.home",
-
     # third party
     "widget_tweaks",
     "rest_framework",
@@ -152,6 +151,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
