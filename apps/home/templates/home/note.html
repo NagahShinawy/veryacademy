@@ -1,7 +1,8 @@
-
-    <title>{% block title %} Note {{ note }} {% endblock %}</title>
+{% extends 'home/base.html' %}
+    {% block title %} Note {{ note }} {% endblock %}
 
    {% block content %}
          <h1> {{ note.title }} </h1>
          <p> {{ note.description }}</p>
+       <a href="{% url 'home:all' %}"><button class="btn btn-primary">Back to notes</button></a>
    {% endblock %}

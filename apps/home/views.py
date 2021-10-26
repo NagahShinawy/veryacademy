@@ -24,9 +24,6 @@ class NoteIndexView(TemplateView):
             if self.request.user.is_authenticated
             else self.UNKNOWN_USER
         )
-        if self.is_user_authenticated:
-            data["notes"] = ["django", "html", "css", "js", "react"]
-
         success_url = reverse_lazy(
             "books:books_list"
         )  # map view name to URL route [path]
