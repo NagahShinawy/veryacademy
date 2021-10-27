@@ -5,13 +5,12 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
-from django.views.generic.base import TemplateView, View
-from django.views.generic.detail import SingleObjectMixin
-from django.shortcuts import redirect
+from django.views.generic.base import TemplateView
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Note
 from .forms import NoteModelForm
+from .mixin import PermissionMixin
 
 
 class NoteIndexView(TemplateView):
