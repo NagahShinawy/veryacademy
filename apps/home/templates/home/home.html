@@ -5,6 +5,7 @@
 
             <h2>{{ username|upper }}</h2>
             <h4>{{ custom_user }}</h4>
+            <h1>You have '{{ notes.count }}' active notes</h1>
             <ul>
                   {% for note in notes %}
                     <li><a class="text-dark text-decoration-non" href="{% url 'home:note' pk=note.pk %}">{{ note.title }}</a> </li>
