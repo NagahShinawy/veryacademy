@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from apps.core.mixins import (
     InfoModelMixin,
@@ -20,6 +21,9 @@ class Note(
 
     """
 
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="notes", null=True, blank=True
+    )
     objects = NoteManager()
 
     class Meta:

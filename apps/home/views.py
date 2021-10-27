@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.views.generic import (
     ListView,
     DetailView,
@@ -5,7 +6,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
+from django.views.generic.detail import SingleObjectMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -54,10 +56,21 @@ class NoteListView(ListView):
     context_object_name = "notes"
 
     def get_queryset(self):
-        return Note.objects.active()
+        return Note.objects.filter(owner=self.request.user, is_active=True)
 
 
-class NoteDetailsView(DetailView):
+class PermissionMixin(SingleObjectMixin, View):
+    def is_note_creator(self, note):
+        return self.request.user == note.owner
+
+    def get_object(self, queryset=None):
+        note = super().get_object(queryset)
+        if not self.is_note_creator(note):
+            raise Http404("Note not found")
+        return note
+
+
+class NoteDetailsView(PermissionMixin, DetailView):
     model = Note
     context_object_name = "note"
     template_name = "home/note.html"
@@ -77,7 +90,7 @@ class CreateNoteBookView(CreateView):
     success_url = reverse_lazy("home:all")
 
 
-class UpdateNoteView(UpdateView):
+class UpdateNoteView(PermissionMixin, UpdateView):
     model = Note
     form_class = NoteModelForm
     template_name = "home/create_note.html"
@@ -86,7 +99,7 @@ class UpdateNoteView(UpdateView):
         return reverse("home:note", args=(self.object.pk,))
 
 
-class DeleteNoteView(DeleteView):
+class DeleteNoteView(PermissionMixin, DeleteView):
     model = Note
     pk_url_kwarg = "pk"
     success_url = reverse_lazy("home:all")
