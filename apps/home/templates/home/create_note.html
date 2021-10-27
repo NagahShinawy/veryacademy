@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    <form action="{% url 'home:create_notebook' %}" method="POST">
+    <form  method="POST">
             {% csrf_token %}
             {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Add Note</button>

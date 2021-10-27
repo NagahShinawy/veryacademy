@@ -1,7 +1,7 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Note
 from .forms import NoteModelForm
@@ -69,3 +69,13 @@ class CreateNoteBookView(CreateView):
     form_class = NoteModelForm
     template_name = "home/create_note.html"
     success_url = reverse_lazy("home:all")
+
+
+class UpdateNoteView(UpdateView):
+    model = Note
+    form_class = NoteModelForm
+    template_name = "home/create_note.html"
+
+    def get_success_url(self):
+        return reverse("home:note", args=(self.object.pk,))
+
