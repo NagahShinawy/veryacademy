@@ -1,3 +1,7 @@
 h1, li {
     color: #de5656;
 }
+
+ul.errorlist {
+    display: none;
+}

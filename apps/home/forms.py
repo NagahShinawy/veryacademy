@@ -9,7 +9,15 @@ class NoteModelForm(forms.ModelForm):
 
     class Meta:
         model = Note
-        fields = ("title", "description", "is_active")
+        fields = ("title", "text", "is_active")
+        labels = {
+            "title": "Type note title",
+            "text": "Type note text",
+        }
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form-control my-5"}),
+            "text": forms.Textarea(attrs={"class": "form-control mb5"}),
+        }
 
     def clean_title(self):
         title = self.cleaned_data.get("title")
