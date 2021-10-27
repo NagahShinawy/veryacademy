@@ -63,11 +63,16 @@ class NoteDetailsView(PermissionMixin, DetailView):
     template_name = "home/note.html"
 
 
-class CreateNoteView(CreateView):
+class CreateNoteView(LoginRequiredMixin, CreateView):
     model = Note
     fields = ["title", "description", "is_active"]
     template_name = "home/create_note.html"
+    login_url = "/admin/"
     success_url = reverse_lazy("home:all")
+    
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 
 class CreateNoteBookView(CreateView):
