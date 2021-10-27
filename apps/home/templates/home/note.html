@@ -8,4 +8,5 @@
         </div>
        <a href="{% url 'home:all' %}"><button class="btn btn-primary">Back to notes</button></a>
        <a href="{% url 'home:update' note.pk %}" class="btn btn-secondary my-5">update</a>
+       <a href="{% url 'home:delete' note.pk %}" class="btn btn-danger my-5">delete</a>
    {% endblock %}

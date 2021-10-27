@@ -8,6 +8,7 @@ from apps.home.views import (
     CreateNoteView,
     CreateNoteBookView,
     UpdateNoteView,
+    DeleteNoteView,
 )
 
 app_name = "home"
@@ -17,6 +18,7 @@ urlpatterns = [
     path("create/", CreateNoteView.as_view(), name="create"),
     path("create_notebook/", CreateNoteBookView.as_view(), name="create_notebook"),
     path("update/<int:pk>", UpdateNoteView.as_view(), name="update"),
+    path("delete/<int:pk>", DeleteNoteView.as_view(), name="delete"),
     path("all/", NoteListView.as_view(), name="all"),
     path("<int:pk>/", NoteDetailsView.as_view(), name="note"),
     path("authorized/", AuthorizedView.as_view(), name="authorized"),

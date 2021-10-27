@@ -1,4 +1,10 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
@@ -79,3 +85,10 @@ class UpdateNoteView(UpdateView):
     def get_success_url(self):
         return reverse("home:note", args=(self.object.pk,))
 
+
+class DeleteNoteView(DeleteView):
+    model = Note
+    pk_url_kwarg = "pk"
+    success_url = reverse_lazy("home:all")
+    template_name = "home/confirm-delete.html"
+    context_object_name = "note"

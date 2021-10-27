@@ -1,0 +1,13 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure to delete '{{ note }}' ?</p>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'home:note' note.pk %}" class="btn btn-secondary my-5">Back</a>
+
+    </form>
+
+{% endblock %}
