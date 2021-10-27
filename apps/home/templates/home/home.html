@@ -7,7 +7,7 @@
             <h4>{{ custom_user }}</h4>
             <ul>
                   {% for note in notes %}
-                    <li><a class="text-dark text-decoration-non" href="{% url 'home:note' pk=note.pk %}">{{ note }}</a> </li>
+                    <li><a class="text-dark text-decoration-non" href="{% url 'home:note' pk=note.pk %}">{{ note.title }}</a> </li>
                   {% endfor %}
             </ul>
 

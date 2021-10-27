@@ -1,9 +1,14 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    <form action="{% url 'home:create' %}" method="POST">
+    <form action="{% url 'home:create_notebook' %}" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Add Note</button>
     </form>
+    {% if form.errors %}
+        <div class="alert alert-danger my-5">
+                {{ form.errors.title.as_text }}
+        </div>
+    {% endif %}
 {% endblock %}

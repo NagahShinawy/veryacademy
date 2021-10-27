@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Note
+from .forms import NoteModelForm
 
 
 class NoteIndexView(TemplateView):
@@ -59,5 +60,12 @@ class NoteDetailsView(DetailView):
 class CreateNoteView(CreateView):
     model = Note
     fields = ["title", "description", "is_active"]
-    template_name = 'home/create_note.html'
+    template_name = "home/create_note.html"
+    success_url = reverse_lazy("home:all")
+
+
+class CreateNoteBookView(CreateView):
+    model = Note
+    form_class = NoteModelForm
+    template_name = "home/create_note.html"
     success_url = reverse_lazy("home:all")
