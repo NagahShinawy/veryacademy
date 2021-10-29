@@ -1,3 +1,6 @@
+from django.contrib.auth import login
+from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import (
     ListView,
@@ -111,4 +114,16 @@ class LoginInterfaceView(LoginView):
 
 
 class LogoutInterfaceView(LogoutView):
-    template_name = 'home/logout.html'
+    template_name = "home/logout.html"
+
+
+class SignupInterfaceView(CreateView):
+    form_class = UserCreationForm
+    template_name = "home/signup.html"
+    success_url = reverse_lazy("home:all")
+
+    def form_valid(self, form):
+        user = form.instance
+        user.save()
+        login(self.request, user)
+        return HttpResponseRedirect(reverse("home:all"))
