@@ -48,13 +48,15 @@ class AuthorizedView(LoginRequiredMixin, TemplateView):
     login_url = "/admin/"
 
 
-class NoteListView(ListView):
+class NoteListView(LoginRequiredMixin, ListView):
     model = Note
     template_name = "home/home.html"
     context_object_name = "notes"
+    login_url = '/admin/'
 
     def get_queryset(self):
-        return Note.objects.filter(owner=self.request.user, is_active=True)
+        return self.request.user.notes.filter(is_active=True)
+        # return Note.objects.filter(owner=self.request.user, is_active=True)
 
 
 class NoteDetailsView(PermissionMixin, DetailView):
@@ -69,9 +71,13 @@ class CreateNoteView(LoginRequiredMixin, CreateView):
     template_name = "home/create_note.html"
     login_url = "/admin/"
     success_url = reverse_lazy("home:all")
+
+    def update_note_owner(self, form):
+        form.instance.owner = self.request.user
+        return form
     
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        form = self.update_note_owner(form)
         return super().form_valid(form)
 
 
