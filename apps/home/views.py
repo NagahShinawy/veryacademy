@@ -111,4 +111,4 @@ class LoginInterfaceView(LoginView):
 
 
 class LogoutInterfaceView(LogoutView):
-    success_url = 'home/login'
+    template_name = 'home/logout.html'
