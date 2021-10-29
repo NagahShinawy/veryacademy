@@ -16,4 +16,13 @@ def index(request):
 
     if skills:
         content += f"Your skills : {','.join(skills[:-1])} and {skills[-1]}"
+
+    print(
+        request.GET.get("price", 100)
+    )  # if 'price' passed but no value ==> '' empty return because price is still exist in the url but no value.
+    # so, it considered 'price' as empty because it passed
+    print(
+        request.GET.get("price") or 100
+    )  # if 'price' passed but no value ==> 100 return
+    # check value ('') (empty) returned or 100
     return HttpResponse(content)
