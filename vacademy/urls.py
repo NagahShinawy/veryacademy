@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from .views import index
 
 urlpatterns = (
     [
@@ -16,6 +16,7 @@ urlpatterns = (
         path("api/v1/", include("apps.core.urls.quiz", namespace="quiz")),
         path("api/v1/", include("apps.lne.api.urls", namespace="lns")),
         path("notes/", include("apps.home.urls", namespace="home")),
+        path("tryeveything/", index, name="tryeverything"),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
