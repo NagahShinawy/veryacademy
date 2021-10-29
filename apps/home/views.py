@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import (
     ListView,
     DetailView,
@@ -52,7 +53,7 @@ class NoteListView(LoginRequiredMixin, ListView):
     model = Note
     template_name = "home/home.html"
     context_object_name = "notes"
-    login_url = '/admin/'
+    login_url = "/admin/"
 
     def get_queryset(self):
         return self.request.user.notes.filter(is_active=True)
@@ -75,7 +76,7 @@ class CreateNoteView(LoginRequiredMixin, CreateView):
     def update_note_owner(self, form):
         form.instance.owner = self.request.user
         return form
-    
+
     def form_valid(self, form):
         form = self.update_note_owner(form)
         return super().form_valid(form)
@@ -103,3 +104,11 @@ class DeleteNoteView(PermissionMixin, DeleteView):
     success_url = reverse_lazy("home:all")
     template_name = "home/confirm-delete.html"
     context_object_name = "note"
+
+
+class LoginInterfaceView(LoginView):
+    template_name = "home/login.html"
+
+
+class LogoutInterfaceView(LogoutView):
+    success_url = 'home/login'
