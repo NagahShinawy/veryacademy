@@ -1,0 +1,20 @@
+Done ==> 1 to 10
+
+- from lean project:
+   - how to extend user model
+   - how to create you custom fields
+   - how to validate fields
+   - match you have already learned from youtibe with real lean projects
+
+
+issues:
+
+    - select_related vs pretech_related
+    - related_name vs related_query_name
+    - limit_choices_to
+    - ContentType, GenericForeignKey
+    - django-polymorphic
+
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey("content_type", "object_id")

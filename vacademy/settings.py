@@ -225,6 +225,6 @@ LOGIN_REDIRECT_URL = 'home:all'
 
 # ############ react app ##############
 
-FRONTEND_ROOT = BASE_DIR / 'cra/build'
+FRONTEND_ROOT = BASE_DIR / 'frontend/build'
 
 print(FRONTEND_ROOT)
