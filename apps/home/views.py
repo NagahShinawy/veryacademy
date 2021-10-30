@@ -64,7 +64,10 @@ class NoteListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super().get_context_data(object_list=None, **kwargs)
-        data["welcome"] = "Hello World"
+
+        # convert string to html code in django template
+        # https://stackoverflow.com/questions/7786493/convert-string-to-html-code-in-django-template
+        data["welcome"] = "<h1>Hello World</h1>"
         return data
 
 
