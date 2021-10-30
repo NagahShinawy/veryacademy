@@ -221,3 +221,10 @@ EGYPT_CODE_PREFIX = 20
 
 LOGIN_REDIRECT_URL = 'home:all'
 # LOGOUT_REDIRECT_URL = "home:login"
+
+
+# ############ react app ##############
+
+FRONTEND_ROOT = BASE_DIR / 'cra/build'
+
+print(FRONTEND_ROOT)
