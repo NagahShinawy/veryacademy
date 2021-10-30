@@ -62,6 +62,11 @@ class NoteListView(LoginRequiredMixin, ListView):
         return self.request.user.notes.filter(is_active=True)
         # return Note.objects.filter(owner=self.request.user, is_active=True)
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(object_list=None, **kwargs)
+        data["welcome"] = "Hello World"
+        return data
+
 
 class NoteDetailsView(PermissionMixin, DetailView):
     model = Note
