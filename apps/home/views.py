@@ -39,6 +39,9 @@ class NoteIndexView(TemplateView):
             "books:books_list"
         )  # map view name to URL route [path]
         print(success_url)
+        search = self.request.GET.get("search")
+        if search:
+            data["search"] = search
 
         return data
 

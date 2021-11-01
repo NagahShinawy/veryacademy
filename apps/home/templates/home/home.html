@@ -3,6 +3,12 @@
 
 {% block content %}
             {{ welcome|safe }}
+            {% if search %}
+                <h2>Search result for <em>{{ search }}</em></h2>
+            {% else %}
+                <h2>No results</h2>
+            {% endif %}
+
             <h2>{{ username|upper }}</h2>
             <h4>{{ custom_user }}</h4>
             <h1>You have '{{ notes.count }}' active notes</h1>
