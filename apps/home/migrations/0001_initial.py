@@ -7,22 +7,43 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Note',
+            name="Note",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(blank=True, max_length=256, null=True)),
-                ('description', models.CharField(blank=True, max_length=256, null=True)),
-                ('created', models.DateTimeField(auto_now_add=True, verbose_name='created datetime')),
-                ('updated', models.DateTimeField(auto_now=True, verbose_name='last modified datetime')),
-                ('is_active', models.BooleanField(default=False, verbose_name='Is Available')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(blank=True, max_length=256, null=True)),
+                (
+                    "description",
+                    models.CharField(blank=True, max_length=256, null=True),
+                ),
+                (
+                    "created",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="created datetime"
+                    ),
+                ),
+                (
+                    "updated",
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="last modified datetime"
+                    ),
+                ),
+                (
+                    "is_active",
+                    models.BooleanField(default=False, verbose_name="Is Available"),
+                ),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
     ]

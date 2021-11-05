@@ -37,5 +37,13 @@ class UpdateModelAdminMixin(admin.ModelAdmin):
 class NoteModelAdmin(
     AddModelAdminMixin, UpdateModelAdminMixin, ReadOnlyAdminModelMixin
 ):
-    list_display = ("id", "title", "description", "text", "created", "is_active", "owner")
+    list_display = (
+        "id",
+        "title",
+        "description",
+        "text",
+        "created",
+        "is_active",
+        "owner",
+    )
     list_editable = ("title", "description", "is_active", "owner")

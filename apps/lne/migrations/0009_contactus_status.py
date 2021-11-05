@@ -6,13 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('lne', '0008_alter_contactus_description'),
+        ("lne", "0008_alter_contactus_description"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='contactus',
-            name='status',
-            field=models.CharField(choices=[('single', 'Single'), ('married', 'Married')], default='single', max_length=7, verbose_name='Material Status'),
+            model_name="contactus",
+            name="status",
+            field=models.CharField(
+                choices=[("single", "Single"), ("married", "Married")],
+                default="single",
+                max_length=7,
+                verbose_name="Material Status",
+            ),
         ),
     ]

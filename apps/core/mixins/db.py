@@ -38,7 +38,7 @@ class SlugModelMixin(models.Model):
 class InfoModelMixin(models.Model):
     title = models.CharField(max_length=256, blank=True, null=True)
     description = models.CharField(max_length=256, blank=True, null=True)
-    text = models.TextField(null=True, blank=True,  verbose_name="text")
+    text = models.TextField(null=True, blank=True, verbose_name="text")
 
     class Meta:
         abstract = True

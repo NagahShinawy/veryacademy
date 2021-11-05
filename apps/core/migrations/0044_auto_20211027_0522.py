@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0043_player'),
+        ("core", "0043_player"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='author',
-            name='text',
-            field=models.TextField(blank=True, null=True, verbose_name='text'),
+            model_name="author",
+            name="text",
+            field=models.TextField(blank=True, null=True, verbose_name="text"),
         ),
         migrations.AddField(
-            model_name='group',
-            name='text',
-            field=models.TextField(blank=True, null=True, verbose_name='text'),
+            model_name="group",
+            name="text",
+            field=models.TextField(blank=True, null=True, verbose_name="text"),
         ),
         migrations.AddField(
-            model_name='product',
-            name='text',
-            field=models.TextField(blank=True, null=True, verbose_name='text'),
+            model_name="product",
+            name="text",
+            field=models.TextField(blank=True, null=True, verbose_name="text"),
         ),
     ]
