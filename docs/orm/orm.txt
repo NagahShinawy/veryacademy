@@ -127,3 +127,10 @@ TechLead is Developer [ create TechLead obj save to Developer model but obj will
 =======================================================================================================================
 # source : https://django-polymorphic.readthedocs.io/en/stable/quickstart.html
 django-polymorphic
+
+
+=======================================================================================================================
+
+show sql commands of specific migration file
+
+- python manage.py sqlmigrate APP_NAME MIGRATION_FILE_NAME_NUMBER
