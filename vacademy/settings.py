@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "apps.akhdar",
     "apps.lne",
     "apps.home",
+    "apps.masterclass",
     # third party
     "widget_tweaks",
     "rest_framework",
