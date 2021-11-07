@@ -11,5 +11,8 @@
         {% for book in books %}
             <a href="{% url 'masterclass:book_details' book.pk %}"><h3>{{ book.title }} {{ book.price }}$</h3></a>
         {% endfor %}
+        <hr>
+        {{ books|unordered_list }}
+        <hr>
 </body>
 </html>
