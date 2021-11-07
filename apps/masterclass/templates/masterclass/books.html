@@ -7,7 +7,7 @@
 <body>
         <h1>Books</h1>
         {% for book in books %}
-                <h3>{{ book.title }} {{ book.price }}$</h3>
+            <a href="{% url 'masterclass:book_details' book.pk %}"><h3>{{ book.title }} {{ book.price }}$</h3></a>
         {% endfor %}
 </body>
 </html>
