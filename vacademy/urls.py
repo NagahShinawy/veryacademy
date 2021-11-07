@@ -16,7 +16,7 @@ urlpatterns = (
         path("api/v1/", include("apps.core.urls.quiz", namespace="quiz")),
         path("api/v1/", include("apps.lne.api.urls", namespace="lns")),
         path("notes/", include("apps.home.urls", namespace="home")),
-        # path("masterclass/", include("apps.masterclass.urls", namespace="masterclass")),
+        path("masterclass/", include("apps.masterclass.urls", namespace="masterclass")),
         path("tryeveything/", index, name="tryeverything"),
         # re_path(r"^(?P<path>.*)$", serve, {"document_root": settings.FRONTEND_ROOT}),
     ]
