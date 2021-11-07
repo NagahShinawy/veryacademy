@@ -9,6 +9,7 @@
 <body>
         <h1 class="book-header">Books</h1>
         {% for book in books %}
+{#            <img src="{{ book.image.url }}" alt="" width="{{ book.image.width }}" height="{{ book.image.height }}">#}
             <a href="{% url 'masterclass:book_details' book.pk %}"><h3>{{ book.title }} {{ book.price }}$</h3></a>
         {% endfor %}
         <hr>
