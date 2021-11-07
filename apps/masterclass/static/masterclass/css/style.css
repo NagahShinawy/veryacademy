@@ -1,0 +1,21 @@
+body{
+
+   //background: white url("static/imgs/back.jpg");
+}
+.jumbotron{
+
+   background: white url("static/imgs/yellow.jpg");
+}
+.jumbotron-special{
+
+   background: white url("static/imgs/purple.jpg");
+
+}
+.jumbotron-special h2{
+
+   color:white;
+}
+
+.book-header {
+   color:green;
+}

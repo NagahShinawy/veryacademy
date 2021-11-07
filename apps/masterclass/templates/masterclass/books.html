@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Books</title>
+    <link rel="stylesheet" href="{% static 'masterclass/css/style.css' %}">
 </head>
 <body>
-        <h1>Books</h1>
+        <h1 class="book-header">Books</h1>
         {% for book in books %}
             <a href="{% url 'masterclass:book_details' book.pk %}"><h3>{{ book.title }} {{ book.price }}$</h3></a>
         {% endfor %}
