@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HearingTestData, Member, ContactUs
+from .models import HearingTestData, Member, ContactUs, Page, Question
 
 
 admin.site.register(HearingTestData)
@@ -15,3 +15,14 @@ class ContactModelAdmin(admin.ModelAdmin):
         "phone",
         "status",
     )
+
+
+class QuestionModelAdmin(admin.TabularInline):
+    model = Question
+
+
+@admin.register(Page)
+class PageModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "title")
+    list_editable = ("title",)
+    inlines = [QuestionModelAdmin]
