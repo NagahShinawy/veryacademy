@@ -44,6 +44,11 @@ INSTALLED_APPS = [
     "apps.lne",
     "apps.home",
     "apps.masterclass",
+
+    # local veryacademy
+    "veryacademyapps.blogme",
+    "veryacademyapps.blogapi",
+
     # third party
     "widget_tweaks",
     "rest_framework",
