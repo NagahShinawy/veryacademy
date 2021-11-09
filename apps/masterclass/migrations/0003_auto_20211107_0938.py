@@ -6,17 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('masterclass', '0002_book_has_offer'),
+        ("masterclass", "0002_book_has_offer"),
     ]
 
     operations = [
-        migrations.AlterModelOptions(
-            name='book',
-            options={'ordering': ['id']},
-        ),
+        migrations.AlterModelOptions(name="book", options={"ordering": ["id"]},),
         migrations.AddField(
-            model_name='book',
-            name='image',
-            field=models.ImageField(default=False, upload_to='photos/'),
+            model_name="book",
+            name="image",
+            field=models.ImageField(default=False, upload_to="photos/"),
         ),
     ]

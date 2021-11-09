@@ -11,7 +11,9 @@ class Book(models.Model):
     has_offer = models.BooleanField(default=False)
     width = models.PositiveIntegerField(default=300)
     height = models.PositiveIntegerField(default=300)
-    image = models.ImageField(upload_to='photos/', default='', width_field='width', height_field='height')
+    image = models.ImageField(
+        upload_to="photos/", default="", width_field="width", height_field="height"
+    )
 
     def __str__(self):
         return f"{self.title} By {self.creator}"

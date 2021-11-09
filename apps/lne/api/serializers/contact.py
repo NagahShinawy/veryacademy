@@ -39,5 +39,6 @@ class ContactUsSerializers(serializers.ModelSerializer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.NO_BLANK_FIELDS:
-            self.fields[field].error_messages['required'] = constants.NO_BLANK.format(field=field)
-
+            self.fields[field].error_messages["required"] = constants.NO_BLANK.format(
+                field=field
+            )

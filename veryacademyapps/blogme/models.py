@@ -19,10 +19,10 @@ class Article(models.Model):
     content = models.TextField()
     slug = models.SlugField(max_length=250, unique_for_date="published")
     published = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="articles"
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="articles")
+    status = models.CharField(
+        max_length=11, choices=Option.choices, default=Option.PUBLISHED
     )
-    status = models.CharField(max_length=11, choices=Option.choices, default=Option.PUBLISHED)
     objects = models.Manager()  # default manager
     articleobjects = PostObjects()  # custom manager
 

@@ -1,1 +1,1 @@
-NO_BLANK = '{field} can not be blank'
+NO_BLANK = "{field} can not be blank"

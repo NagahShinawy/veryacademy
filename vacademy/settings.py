@@ -44,11 +44,9 @@ INSTALLED_APPS = [
     "apps.lne",
     "apps.home",
     "apps.masterclass",
-
     # local veryacademy
     "veryacademyapps.blogme",
     "veryacademyapps.blogapi",
-
     # third party
     "widget_tweaks",
     "rest_framework",
@@ -145,13 +143,10 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-BASE_STATIC_FILE = BASE_DIR / "static",
-MASTERCLASS_STATIC_FILE = BASE_DIR / 'apps/masterclass/static'
+BASE_STATIC_FILE = (BASE_DIR / "static",)
+MASTERCLASS_STATIC_FILE = BASE_DIR / "apps/masterclass/static"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    BASE_DIR / 'apps/masterclass/static'
-]
+STATICFILES_DIRS = [BASE_DIR / "static", BASE_DIR / "apps/masterclass/static"]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -217,7 +212,7 @@ DEBUG_TOOLBAR_PANELS = [
 
 EGYPT_CODE_PREFIX = 20
 
-LOGIN_REDIRECT_URL = 'home:all'
+LOGIN_REDIRECT_URL = "home:all"
 # LOGOUT_REDIRECT_URL = "home:login"
 
 

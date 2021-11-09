@@ -19,7 +19,10 @@ urlpatterns = (
         path("masterclass/", include("apps.masterclass.urls", namespace="masterclass")),
         path("tryeveything/", index, name="tryeverything"),
         path("vacademy/", include("veryacademyapps.blogme.urls", namespace="blogme")),
-        path("vacademy/api/v1", include("veryacademyapps.blogapi.urls", namespace="blogapi")),
+        path(
+            "vacademy/api/v1",
+            include("veryacademyapps.blogapi.urls", namespace="blogapi"),
+        ),
         # re_path(r"^(?P<path>.*)$", serve, {"document_root": settings.FRONTEND_ROOT}),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
