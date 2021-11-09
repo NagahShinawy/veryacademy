@@ -4,6 +4,7 @@ from rest_framework import serializers
 from django.conf import settings
 from apps.lne.models import ContactUs
 from apps.lne.errors import NotEgyptPhoneNumber
+from apps.lne.api import constants
 
 
 class NationalIDField(fields.RegexField):
@@ -29,7 +30,14 @@ class CustomPhoneNumberField(PhoneNumberField):
 class ContactUsSerializers(serializers.ModelSerializer):
     nationalid = NationalIDField()
     phone = CustomPhoneNumberField()
+    NO_BLANK_FIELDS = ["name", "phone", "nationalid"]
 
     class Meta:
         model = ContactUs
         fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.NO_BLANK_FIELDS:
+            self.fields[field].error_messages['required'] = constants.NO_BLANK.format(field=field)
+
