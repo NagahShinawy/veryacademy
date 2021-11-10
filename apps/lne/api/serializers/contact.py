@@ -36,6 +36,7 @@ class ContactUsSerializers(serializers.ModelSerializer):
         model = ContactUs
         fields = "__all__"
 
+    # custom error messages, change error message
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.NO_BLANK_FIELDS:
