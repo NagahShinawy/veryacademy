@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "rest_framework",
     "phonenumber_field",
+    'django_extensions'
 ]
 
 if DEBUG and DEBUG_TOOLBAR:
