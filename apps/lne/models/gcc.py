@@ -31,3 +31,4 @@ class City(models.Model):
 
     class Meta:
         ordering = ["id"]
+        verbose_name_plural = "Cities"
