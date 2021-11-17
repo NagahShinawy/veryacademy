@@ -29,4 +29,5 @@ class PageModelAdmin(admin.ModelAdmin):
 
 @admin.register(City)
 class CityModelAdmin(admin.ModelAdmin):
-    list_display = ("id", "name")
+    list_display = ("id", "name", "long", "lat", "notes")
+    list_editable = ("name", )
