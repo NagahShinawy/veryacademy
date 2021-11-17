@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import HearingTestData, Member, ContactUs, Page, Question
-
+from .models import HearingTestData, Member, ContactUs, Page, Question, City
 
 admin.site.register(HearingTestData)
 admin.site.register(Member)
@@ -26,3 +25,8 @@ class PageModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title")
     list_editable = ("title",)
     inlines = [QuestionModelAdmin]
+
+
+@admin.register(City)
+class CityModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "name")

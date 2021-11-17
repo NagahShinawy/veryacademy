@@ -24,3 +24,10 @@ class Question(RepModelMixin, models.Model):
     page = models.ForeignKey(
         to=Page, on_delete=models.PROTECT, related_name="questions"
     )
+
+
+class City(models.Model):
+    name = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ["id"]
