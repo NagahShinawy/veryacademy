@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from import_export.admin import ImportExportModelAdmin
 from apps.home.models import Note
 
 
@@ -35,7 +35,7 @@ class UpdateModelAdminMixin(admin.ModelAdmin):
 
 @admin.register(Note)
 class NoteModelAdmin(
-    AddModelAdminMixin, UpdateModelAdminMixin, ReadOnlyAdminModelMixin
+    ImportExportModelAdmin, AddModelAdminMixin, UpdateModelAdminMixin, ReadOnlyAdminModelMixin
 ):
     list_display = (
         "id",

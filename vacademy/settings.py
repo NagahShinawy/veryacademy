@@ -44,14 +44,17 @@ INSTALLED_APPS = [
     "apps.lne",
     "apps.home",
     "apps.masterclass",
+
     # local veryacademy
     "veryacademyapps.blogme",
     "veryacademyapps.blogapi",
+
     # third party
     "widget_tweaks",
     "rest_framework",
     "phonenumber_field",
-    'django_extensions'
+    "django_extensions",
+    "import_export",
 ]
 
 if DEBUG and DEBUG_TOOLBAR:
