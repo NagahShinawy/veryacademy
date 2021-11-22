@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "django_extensions",
     "import_export",
+    "address",
 ]
 
 if DEBUG and DEBUG_TOOLBAR:
