@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "apps.lne",
     "apps.home",
     "apps.masterclass",
+    "apps.booking",
 
     # local veryacademy
     "veryacademyapps.blogme",
@@ -55,7 +56,6 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "django_extensions",
     "import_export",
-    "address",
 ]
 
 if DEBUG and DEBUG_TOOLBAR:
