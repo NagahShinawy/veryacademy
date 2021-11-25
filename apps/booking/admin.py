@@ -1,6 +1,9 @@
 # list_display django foreign key
 # https://stackoverflow.com/questions/163823/can-list-display-in-a-django-modeladmin-display-attributes-of-foreignkey-field
 
+# custom admin panel
+# relationship list display
+
 from django.contrib import admin
 from .models import Booking, Customer
 
