@@ -22,6 +22,7 @@ from apps.core.models import (
     Server,
     Ubuntu,
     Centos,
+    Person
 )
 
 
@@ -61,6 +62,11 @@ class ISBNModelAdmin(admin.ModelAdmin):
 class QuizModelAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "category", "created")
     list_editable = ("title", "category")
+
+
+@admin.register(Person)
+class QuizModelAdmin(admin.ModelAdmin):
+    list_display = ("id", "first_name", "created_date")
 
 
 @admin.register(Category)

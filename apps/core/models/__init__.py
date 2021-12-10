@@ -9,7 +9,7 @@ from .book import (
     MedicalItem,
     MedicalItemExport,
 )
-from .quiz import Category, Quizzes
+from .quiz import Category, Quizzes, Person
 from .student import Student, Teacher, Account, Staff, TLead
 from .item import Group, Product, NoteBook
 from .server import Server, Ubuntu, Centos

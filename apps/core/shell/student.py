@@ -195,3 +195,11 @@ print(males)
 males = males.reverse()
 print(males)
 # from apps.core.shell.student import *
+from apps.core.models.quiz import AuthorBook, BookDjango
+
+print(BookDjango.objects.all())
+author = AuthorBook.objects.annotate_with_copies_sold().first()
+
+# from apps.core.shell.student import *
+
+print(author.nu)
