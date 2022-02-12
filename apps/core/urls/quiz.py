@@ -7,7 +7,7 @@ from apps.core.views import (
     QuizAPIView,
     RetrieveCategoryAPIView,
     RetrieveQuizAPIView,
-    PersonViewSet
+    PersonViewSet,
 )
 
 app_name = "quiz"
@@ -25,6 +25,6 @@ urlpatterns = [
 
 
 router = DefaultRouter()
-router.register('persons', PersonViewSet)
+router.register("persons", PersonViewSet)
 
 urlpatterns += [path("", include(router.urls))]

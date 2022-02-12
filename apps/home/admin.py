@@ -35,7 +35,10 @@ class UpdateModelAdminMixin(admin.ModelAdmin):
 
 @admin.register(Note)
 class NoteModelAdmin(
-    ImportExportModelAdmin, AddModelAdminMixin, UpdateModelAdminMixin, ReadOnlyAdminModelMixin
+    ImportExportModelAdmin,
+    AddModelAdminMixin,
+    UpdateModelAdminMixin,
+    ReadOnlyAdminModelMixin,
 ):
     list_display = (
         "id",

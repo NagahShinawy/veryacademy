@@ -8,26 +8,59 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Customer',
+            name="Customer",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, max_length=256, null=True)),
-                ('email', models.EmailField(blank=True, max_length=254, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(blank=True, max_length=256, null=True)),
+                ("email", models.EmailField(blank=True, max_length=254, null=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Booking',
+            name="Booking",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('checkin', models.DateField(verbose_name='Checkin Date')),
-                ('checkout', models.DateField(verbose_name='Checkout Date')),
-                ('status', models.CharField(choices=[('new', 'New'), ('pending', 'Pending'), ('active', 'Active'), ('canceled', 'Canceled')], default='new', max_length=10)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='booking.customer')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("checkin", models.DateField(verbose_name="Checkin Date")),
+                ("checkout", models.DateField(verbose_name="Checkout Date")),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("new", "New"),
+                            ("pending", "Pending"),
+                            ("active", "Active"),
+                            ("canceled", "Canceled"),
+                        ],
+                        default="new",
+                        max_length=10,
+                    ),
+                ),
+                (
+                    "customer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="booking.customer",
+                    ),
+                ),
             ],
         ),
     ]

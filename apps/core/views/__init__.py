@@ -11,7 +11,7 @@ from .quiz import (
     QuizAPIView,
     RetrieveCategoryAPIView,
     RetrieveQuizAPIView,
-    PersonViewSet
+    PersonViewSet,
 )
 from .student import (
     lower,

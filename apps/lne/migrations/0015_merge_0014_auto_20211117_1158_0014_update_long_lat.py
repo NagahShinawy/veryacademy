@@ -6,9 +6,8 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('lne', '0014_auto_20211117_1158'),
-        ('lne', '0014_update_long_lat'),
+        ("lne", "0014_auto_20211117_1158"),
+        ("lne", "0014_update_long_lat"),
     ]
 
-    operations = [
-    ]
+    operations = []

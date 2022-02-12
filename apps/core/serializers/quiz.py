@@ -34,9 +34,4 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Person
-        fields = [
-            "first_name",
-            "last_name",
-            "email",
-            "created_date"
-        ]
+        fields = ["first_name", "last_name", "email", "created_date"]

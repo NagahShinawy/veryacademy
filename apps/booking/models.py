@@ -16,9 +16,7 @@ class Booking(models.Model):
         ACTIVE = ("active", "Active")
         CANCELED = ("canceled", "Canceled")
 
-    customer = models.ForeignKey(
-        to=Customer, on_delete=models.PROTECT
-    )
+    customer = models.ForeignKey(to=Customer, on_delete=models.PROTECT)
     checkin = models.DateField(verbose_name="Checkin Date")
     checkout = models.DateField(verbose_name="Checkout Date")
     status = models.CharField(max_length=10, choices=Status.choices, default=Status.NEW)

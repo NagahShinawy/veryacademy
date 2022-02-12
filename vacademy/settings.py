@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "apps.home",
     "apps.masterclass",
     "apps.booking",
+    "apps.lotusforcontracting",
 
     # local veryacademy
     "veryacademyapps.blogme",

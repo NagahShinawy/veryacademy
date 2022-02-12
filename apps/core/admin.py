@@ -22,7 +22,7 @@ from apps.core.models import (
     Server,
     Ubuntu,
     Centos,
-    Person
+    Person,
 )
 
 

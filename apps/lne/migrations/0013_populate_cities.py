@@ -21,7 +21,7 @@ def forward(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('lne', '0012_city'),
+        ("lne", "0012_city"),
     ]
 
     operations = [
