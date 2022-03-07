@@ -4,6 +4,17 @@ from apps.core.choices import MaritalStatus, Gender
 from apps.core.constants import DECIMAL_OPTIONS, NULL_BLANK
 
 
+class NameModelMixin(models.Model):
+    name = models.CharField(max_length=50, help_text="The Publisher Name")
+
+    class Meta:
+        abstract = True
+
+
+class WebsiteModelMixin(models.Model):
+    website = models.URLField(help_text="The Publisher's website.")
+
+
 class GenderModelMixin(models.Model):
     gender = models.CharField(
         max_length=1,

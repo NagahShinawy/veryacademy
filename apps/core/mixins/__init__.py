@@ -1,4 +1,6 @@
 from .db import (
+    NameModelMixin,
+    WebsiteModelMixin,
     BasicInfoMixin,
     CreatedModelMixin,
     GenderModelMixin,
@@ -20,6 +22,8 @@ from .patterns import (
 )
 
 __all__ = [
+    "NameModelMixin",
+    "WebsiteModelMixin",
     "BasePatternMixin",
     "NumberPatternMixin",
     "UpperCasePatternMixin",
